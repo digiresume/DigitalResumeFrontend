@@ -1,0 +1,24 @@
+/* .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+  }
+  .card-registration .select-arrow {
+    top: 13px;
+  } */
+
+  /* .container{
+    height: ;
+  } */
+
+  .form-outline{
+    background-color: rgb(233, 229, 229);
+        border-radius: 15px;
+
+  }
+
+  .profField input[type=text]{
+    padding:50px;
+  }
+
