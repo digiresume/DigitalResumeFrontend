@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-scroll';
-// import { Link } from 'react-router-dom';
 import Pic01 from '../images/pic01.jpg';
 import Pic02 from '../images/pic02.jpg';
 import Pic03 from '../images/pic03.jpg';
@@ -22,7 +21,7 @@ function Home(props) {
                             to land that<br />
                             dream job</p>
                         <ul className="actions special">
-                            <li><Link to="/api/auth/register" className="button primary">Create your resume</Link></li>
+                            <li><Link to="/" className="button primary">Create your resume</Link></li>
                         </ul>
                     </div>
                     <Link to="one" className="more scrolly" smooth={true} duration={1000}>Learn More</Link>

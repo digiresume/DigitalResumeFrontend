@@ -1,14 +1,31 @@
 /* PROGRESS BAR */
 .progressbar {
-    width: 400px;
+    width: 28%;
     height: 10px;
     background-color: white;
     margin-bottom: 50px;
+    margin-left: 37%;
+    
   }
   
   .progressbar div {
     width: 33.3%;
     height: 100%;
-    background-color: rgb(98, 0, 255);
+    background-color: rgb(142, 187, 190);
   }
   
+  .header h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  label{
+    color: black;
+  }
