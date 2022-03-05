@@ -7,6 +7,7 @@ import SignUp from "./Pages/signup/Signup"
 import ForgotPassword from "./Pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import Form from "./components/forms/Form";
+import Admin from "./Pages/admin/Admin";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/api/auth/forgotpassword" element={<ForgotPassword />} />
           <Route exact path="/api/auth/resetpassword/:resetToken" element={<ResetPassword />} />
           <Route exact path="/form" element={<Form />} />
+          <Route exact path="/admin" element={<Admin />} />
         </Routes>
       </div>
     </Router >

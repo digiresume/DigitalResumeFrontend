@@ -64,8 +64,8 @@ function Skills(props) {
                                 </div>
 
                                 <div className="col-md-6 mb-4">
-                                  <BiPlus onClick={() => handleAddFields()} />
-                                  <BiMinus onClick={() => handleRemoveFields(index)} />
+                                  <BiPlus onClick={() => handleAddFields()} color="black" />
+                                  <BiMinus onClick={() => handleRemoveFields(index)} color="black" />
                                 </div>
                               </div>
 

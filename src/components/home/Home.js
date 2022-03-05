@@ -21,7 +21,7 @@ function Home(props) {
                             to land that<br />
                             dream job</p>
                         <ul className="actions special">
-                            <li><Link to="/" className="button primary">Create your resume</Link></li>
+                            <li><a href="/api/auth/register" className="button primary">Create your resume</a></li>
                         </ul>
                     </div>
                     <Link to="one" className="more scrolly" smooth={true} duration={1000}>Learn More</Link>

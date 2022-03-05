@@ -10,7 +10,7 @@
     justify-content: flex-start;
     align-items: center;
     position: fixed;
-	top: 0;
+	  top: 0;
     width: 100%;
     z-index: 10000;
 }
@@ -20,12 +20,13 @@
 }
 
 .nav-title{
-    padding-top:1.0rem;
+    padding-top:0.1rem;
     padding-left: 0.7rem;
 }
 
 .nav-title h3 a{
    border: none;
+   font-family: 'Roboto', sans-serif;
 }
 
 .menu-bars{
@@ -76,6 +77,14 @@
       }
 
     }
+
+    /* @media screen and (min-device-width: 375px)
+  and (orientation: portrait) {
+    .menu-bars {
+        margin-left: 10%;
+      }
+
+    } */
 
 
 .nav-menu{
