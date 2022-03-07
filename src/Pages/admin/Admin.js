@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Admin.css';
 
 
@@ -55,7 +54,7 @@ function Admin(props) {
                 <hr />
                 <div className='adminButton'>
                     <button>Add user</button>
-                    <button className='w3-red removeUser'>Remove user</button>
+                    <button className='removeUser'>Remove user</button>
                     <button>Users List</button>
                 </div>
 
@@ -83,28 +82,28 @@ function Admin(props) {
                     <h5>Users List</h5>
                     <table className="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
                         <tr>
-                            <td>United States</td>
-                            <td>65%</td>
+                            <td>Sarag Mohan</td>
+
                         </tr>
                         <tr>
-                            <td>UK</td>
-                            <td>15.7%</td>
+                            <td>Saranya</td>
+
                         </tr>
                         <tr>
-                            <td>Russia</td>
-                            <td>5.6%</td>
+                            <td>Kavya</td>
+
                         </tr>
                         <tr>
-                            <td>Spain</td>
-                            <td>2.1%</td>
+                            <td>Blessy</td>
+
                         </tr>
                         <tr>
-                            <td>India</td>
-                            <td>1.9%</td>
+                            <td>Abhiram</td>
+
                         </tr>
                         <tr>
-                            <td>France</td>
-                            <td>1.5%</td>
+                            <td>John</td>
+
                         </tr>
                     </table><br />
                     <button className="w3-button w3-dark-grey">More Users  <i className="fa fa-arrow-right"></i></button>
@@ -134,20 +133,20 @@ function Admin(props) {
                     <h5>Recent Comments</h5>
                     <div className="w3-row">
                         <div className="w3-col m2 text-center">
-                            <img className="w3-circle" src="/w3images/avatar3.png" alt="sample pic" style={{ "width": "96px", "height": "96px" }} />
+                            {/* <img className="w3-circle" src="/w3images/avatar3.png" alt="sample pic" style={{ "width": "96px", "height": "96px" }} /> */}
                         </div>
                         <div className="w3-col m10 w3-container">
-                            <h4>John <span className="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
+                            <h4>Blessy <span className="w3-opacity w3-medium">Mar 05, 2022, 9:12 PM</span></h4>
                             <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br />
                         </div>
                     </div>
 
                     <div className="w3-row">
                         <div className="w3-col m2 text-center">
-                            <img className="w3-circle" src="/w3images/avatar1.png" alt="sample pic" style={{ "width": "96px", "height": "96px" }} />
+                            {/* <img className="w3-circle" src="/w3images/avatar1.png" alt="sample pic" style={{ "width": "96px", "height": "96px" }} /> */}
                         </div>
                         <div className="w3-col m10 w3-container">
-                            <h4>Bo <span className="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
+                            <h4>Abhiram <span className="w3-opacity w3-medium">Mar 03, 2022, 10:15 PM</span></h4>
                             <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br />
                         </div>
                     </div>
@@ -156,7 +155,7 @@ function Admin(props) {
 
 
                 {/* <!-- Footer --> */}
-                <footer id="footer">
+                {/* <footer id="footer">
                     <ul className="icons">
                         <li><Link to="#" className="icon brands fa-twitter"><span className="label">Twitter</span></Link></li>
                         <li><Link to="#" className="icon brands fa-facebook-f"><span className="label">Facebook</span></Link></li>
@@ -166,7 +165,7 @@ function Admin(props) {
                     <ul className="copyright">
                         <li>&copy; ICTAK</li><li>Design: <Link to="/">BATCH 1 - Group 6</Link></li>
                     </ul>
-                </footer>
+                </footer> */}
 
 
                 {/* <!-- End page content --> */}

@@ -45,53 +45,34 @@ function Honors(props) {
               <div className="col">
                 <div className="card card-registration my-4">
                   <div className="row g-0">
-                    <div className="col-xl-6 d-none d-xl-block">
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
-                        alt="Sample pic"
-                        className="img-fluid"
-                        style={{ borderTopLeftRadius: ".25rem", borderBottomLeftRadius: ".25rem" }}
-                      />
-                    </div>
                     <div className="col-xl-6">
                       <div className="card-body p-md-5 text-black">
-                        <h3 className="mb-5 text-uppercase">SleekCV</h3>
-                        <h1>Add Your Awards And Honours</h1>
                         <form onSubmit={handleSubmit}>
                           {honourFields.map((inputField, index) => (
                             <div key={index}>
                               <div className="row">
                                 <div className="col-md-6 mb-4">
                                   <label className="form-label" htmlFor="form3Example1m">Date of Issued Certification</label>
-                                  <input type="date" id="date" name="date" className='date'></input>
+                                  <input type="date" id="date" name="date" className='date' style={{ "width": "100%" }}></input>
                                 </div>
 
                                 <div className="col-md-6 mb-4">
-                                  <BiPlus onClick={() => handleAddFields()} />
-                                  <BiMinus onClick={() => handleRemoveFields(index)} />
+                                  <BiPlus onClick={() => handleAddFields()} color="black" />
+                                  <BiMinus onClick={() => handleRemoveFields(index)} color="black" />
                                 </div>
                               </div>
 
+                              <label className="form-label" htmlFor="form3Example1m">Certification Title</label>
                               <Form.Control type="text" placeholder="Cerification Title" name="certificationTitle" value={inputField.certificationTitle} onChange={event => handleChangeInput(index, event)} />
-                              <br></br>
+
+                              <label className="form-label" htmlFor="form3Example1m">Authority Of Cerification</label>
                               <Form.Control type="text" placeholder="Authority Of Cerification" name="authorityOfCertification" value={inputField.authorityOfCertification} onChange={event => handleChangeInput(index, event)} />
                               <br></br>
                             </div>
                           ))}
-                          {/* <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button> */}
+
                           <div className="d-flex justify-content-end pt-3">
-                            {/* <button type="button" className="btn btn-light btn-lg" 
-                            disabled={ page == 0 }
-                            onClick={()=>{
-                              setPage((currPage) => currPage - 1);
-                            }}>Back</button>
-                            <button type="button" className="btn btn-warning btn-lg ms-2"
-                              disabled={ page == FormTitles.length -1 }
-                              onClick={()=>{
-                                setPage((currPage) => currPage + 1);
-                              }}>Continue</button> */}
-                            {/* <button type="button" className="btn btn-light btn-lg" >Back</button>
-                            <button type="button" className="btn btn-warning btn-lg ms-2">Continue</button> */}
+
                           </div>
                         </form>
 

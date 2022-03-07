@@ -4,6 +4,7 @@ import EducationalData from './formComponents/EducationalData';
 import Work from './formComponents/Work';
 import Skills from './formComponents/Skills';
 import Honors from './formComponents/Honors';
+import Project from './formComponents/Project';
 import './Form.css';
 
 
@@ -16,6 +17,7 @@ function Form(props) {
         location: "", dob: "", linkedin: "", github: "",
         degreeug: "", universityug: "", yearsug: "", achievementsug: "", schoolXII: "", boardXII: "",
         yearsXII: "", achievementsXII: "", schoolX: "", boardX: "", yearsX: "", achievementsX: "",
+        fdjob: "", fdcompany: "", fddescription: "", skill: [], title: [], domain: [], duration: [], description: [],
     });
 
 
@@ -34,7 +36,7 @@ function Form(props) {
         } else if (page === 2) {
             return <Work formData={formData} setFormData={setFormData} />
         } else if (page === 3) {
-            return <PersonInfo formData={formData} setFormData={setFormData} />
+            return <Project formData={formData} setFormData={setFormData} />
         } else if (page === 4) {
             return <Skills formData={formData} setFormData={setFormData} />
         } else if (page === 5) {
@@ -71,6 +73,7 @@ function Form(props) {
                         onClick={() => { setPage((currPage) => currPage + 1) }}>Next</button>
                 </div>
             </div>
+            <br /><br />
 
         </div>
     );

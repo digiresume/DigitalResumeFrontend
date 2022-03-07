@@ -16,3 +16,11 @@ margin-left: 20%;
 .adminButton button:hover{
     background-color: rgb(97, 172, 53);
 }
+
+.removeUser{
+    background-color: rgb(112, 17, 5) !important;
+}
+
+.removeUser:hover{
+    background-color: rgb(247, 53, 27) !important;
+}

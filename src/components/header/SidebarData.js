@@ -12,7 +12,7 @@ export const SidebarData = [
     },
     {
         title: 'About',
-        path: '/About',
+        path: '/about',
         icon: <AiIcons.AiFillBulb />,
         cName: 'nav-text'
     },

@@ -1,5 +1,5 @@
 .navbar{
-    -moz-transition: background-color 0.2s ease;
+  -moz-transition: background-color 0.2s ease;
 	-webkit-transition: background-color 0.2s ease;
 	-ms-transition: background-color 0.2s ease;
 	transition: background-color 0.2s ease;
@@ -50,7 +50,7 @@
 /* For Desktop View */
 @media screen and (min-width: 1024px) {
     .menu-bars {
-      margin-left: 88%;
+      margin-left: 88% !important;
     }
   }
    
@@ -58,13 +58,13 @@
   @media screen and (min-device-width: 768px)
   and (max-device-width: 1024px) {
     .menu-bars {
-        margin-left: 77%;
+        margin-left: 77% !important;
       }
     }
     
     @media screen and (max-device-width: 720px) {
     .menu-bars {
-        margin-left: 73%;
+        margin-left: 73% !important;
       }
 
     }
@@ -73,24 +73,41 @@
   @media screen and (max-device-width: 480px)
   and (orientation: portrait) {
     .menu-bars {
-        margin-left: 58%;
+        margin-left: 58% !important;
       }
 
     }
 
-    /* @media screen and (min-device-width: 375px)
+    @media screen and (min-device-width: 360px)
   and (orientation: portrait) {
     .menu-bars {
-        margin-left: 10%;
+        margin-left: 50% !important;
       }
 
-    } */
+    }
 
+    @media screen and (min-device-width: 770px)
+    and (orientation: portrait) {
+      .menu-bars {
+          margin-left: 75% !important;
+        }
+  
+      }
 
+      
+    /* @media screen and (max-device-width: 776px)
+    and (orientation: portrait) {
+      .menu-bars {
+          margin-left: 15% !important;
+        }
+  
+      } */
+
+      
 .nav-menu{
     background-color: #2e3842;
     opacity: 0.7;
-    width: 250px;
+    width: 15% !important;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -104,13 +121,16 @@
 .nav-menu.active{
     right:0;
     transition: 350ms;
+    z-index: 1;
 }
 
 .nav-text{
-    display: flex;
+    /* display: flex;
     justify-content:flex-start;
-    align-items: center;
-    padding:8px 0px 8px 0px;
+    align-items: center; */
+    list-style:none;
+    padding:8px 0px 8px 0px !important;
+    
     height: 60px;
 }
 
@@ -131,7 +151,7 @@
   }
 
 .nav-menu-items{
-    width:100%;
+    width:100% !important;
 }
 
 .navbar-toggle {

@@ -16,10 +16,12 @@ function Home(props) {
                 {/* Banner */}
                 <section id="banner">
                     <div className="inner">
-                        <h2>Sleekcvs</h2>
-                        <p>Boost your chances-<br />
+                        <h2 style={{ "fontWeight": "bold" }}>Sleekcvs</h2>
+
+                        <p style={{ "fontWeight": "normal" }}> Boost your chances-<br />
                             to land that<br />
                             dream job</p>
+
                         <ul className="actions special">
                             <li><a href="/api/auth/register" className="button primary">Create your resume</a></li>
                         </ul>
@@ -108,21 +110,8 @@ function Home(props) {
                     </div>
                 </section>
 
-                {/* Footer */}
-                <footer id="footer">
-                    <ul className="icons">
-                        <li><Link to="#" className="icon brands fa-twitter"><span className="label">Twitter</span></Link></li>
-                        <li><Link to="#" className="icon brands fa-facebook-f"><span className="label">Facebook</span></Link></li>
-                        <li><Link to="#" className="icon brands fa-instagram"><span className="label">Instagram</span></Link></li>
-                        <li><Link to="#" className="icon solid fa-envelope"><span className="label">Email</span></Link></li>
-                    </ul>
-                    <ul className="copyright">
-                        <li>&copy; ICTAK</li><li>Design: <Link to="/">BATCH 1 - Group 6</Link></li>
-                    </ul>
-                </footer>
-
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }
 
