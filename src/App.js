@@ -11,6 +11,9 @@ import Admin from "./Pages/admin/Admin";
 import AboutUs from "./Pages/about/AboutUs";
 import Footer from "./components/footer/Footer";
 import UserHome from "./Pages/user home/UserHome";
+import TemplateOne from "./Pages/resume templates/template one/TemplateOne";
+import ChooseTemplate from "./Pages/choose template/ChooseTemplate";
+import Pdf from "./Pages/react to pdf/Pdf";
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
           <Route exact path="/form" element={<Form />} />
           <Route exact path="/admin" element={<Admin />} />
           <Route exact path="/user-home" element={<UserHome />} />
+          <Route exact path="/template-one" element={<TemplateOne />} />
+          <Route exact path="/choose-template" element={<ChooseTemplate />} />
+          <Route exact path="/resume-download" element={<Pdf />} />
         </Routes>
       </div>
       <Footer />

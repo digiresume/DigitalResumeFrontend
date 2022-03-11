@@ -17,16 +17,19 @@
 
 .navbar.active{
     background-color: #2e3842;
+    
 }
 
 .nav-title{
-    padding-top:0.1rem;
-    padding-left: 0.7rem;
+    padding-top:0.1rem !important;
+    padding-left: 0.7rem !important;
 }
 
 .nav-title h3 a{
    border: none;
-   font-family: 'Roboto', sans-serif;
+   font-family: 'Roboto', sans-serif !important;
+   font-size: 1.4rem !important;
+   color: white !important;
 }
 
 .menu-bars{
@@ -52,6 +55,7 @@
     .menu-bars {
       margin-left: 88% !important;
     }
+   
   }
    
   /* For Tablet View */
@@ -60,13 +64,15 @@
     .menu-bars {
         margin-left: 77% !important;
       }
+      
+      
     }
     
     @media screen and (max-device-width: 720px) {
     .menu-bars {
         margin-left: 73% !important;
       }
-
+      
     }
 
   /* For Mobile Portrait View */
@@ -75,13 +81,19 @@
     .menu-bars {
         margin-left: 58% !important;
       }
-
+    
+    
     }
 
     @media screen and (min-device-width: 360px)
   and (orientation: portrait) {
     .menu-bars {
         margin-left: 50% !important;
+      }
+
+      .nav-menu.active{
+        width: 45%;
+        z-index: 10;
       }
 
     }
@@ -91,7 +103,7 @@
       .menu-bars {
           margin-left: 75% !important;
         }
-  
+      
       }
 
       
@@ -106,8 +118,8 @@
       
 .nav-menu{
     background-color: #2e3842;
-    opacity: 0.7;
-    width: 15% !important;
+    /* opacity: 0.7; */
+    width: 15%;
     height: 100vh;
     display: flex;
     justify-content: center;

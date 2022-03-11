@@ -34,9 +34,15 @@ li {
   padding-bottom: 14px;
   margin-bottom: 25px;
   font-weight: 700;
-  font-size: 32px;
+  /* font-size: 3rem; */
   color: black;
+ 
 }
+/* 
+.section-services .header-section h3{
+  border: 2px solid red; 
+  width: fit-content;
+} */
 
 .section-services .header-section .title:before {
   content: "";
@@ -216,7 +222,7 @@ li {
 
 .section-team .header-section .title {
   font-weight: 700;
-  font-size: 45px;
+  /* font-size: 45px; */
 }
 
 .section-team .single-person {

@@ -33,10 +33,11 @@ function Work({ formData, setFormData }) {
         </div>
         <div className="formInline">
           <label htmlFor="Sdate" className="labelFname">
-            Start-Date & End-Date
+            Years of experience
           </label>
-          <input type="date" id="sdate" name="date" />
-          <input type="date" id="edate" name="date" />
+          <input type="text" id="sdate" name="date" placeholder="Years of experience (start date - end date).." value={formData.fdduration}
+            onChange={(event) => { setFormData({ ...formData, fdduration: event.target.value }) }} />
+
         </div>
         <label htmlFor="description">Description</label>
         <textarea

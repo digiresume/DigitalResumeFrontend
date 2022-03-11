@@ -5,22 +5,6 @@ import "./AboutUs.css";
 export default function App() {
   return (
     <div>
-      {/* <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-      /> */}
-      {/* <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css"
-      /> */}
-      {/* <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css"
-      /> */}
-      {/* <link
-        href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap"
-        rel="stylesheet"
-      /> */}
 
       {/* START SECTION SERVICES */}
       <section className="section-services">
@@ -28,7 +12,7 @@ export default function App() {
           <div className="row justify-content-center text-center">
             <div className="col-md-10 col-lg-8">
               <div className="header-section">
-                <h2 className="title">Exclusive Features</h2>
+                <h3 className="title">Exclusive Features</h3>
                 <p className="description">
                   SleekCV's has no cost, no ads and no limitations. Access
                   features that will help you get hired
@@ -100,7 +84,7 @@ export default function App() {
             <div className="col-md-8 col-lg-6">
               <div className="header-section">
                 <h3 className="small-title">Our Experts</h3>
-                <h2 className="title">Let's meet with our team members</h2>
+                <h3 className="title">Let's meet with our team members</h3>
               </div>
             </div>
           </div>
@@ -173,7 +157,7 @@ export default function App() {
                     alt=""
                   />
                   <span className="icon">
-                    <a href="/"><i className="fab fa-linkedin" /></a>
+                    <a href="https://www.linkedin.com/in/blessy-mathew-2229b7b4"><i className="fab fa-linkedin" /></a>
                   </span>
                 </div>
                 <div className="person-info">

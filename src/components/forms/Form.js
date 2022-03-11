@@ -2,22 +2,30 @@ import React, { useState } from 'react';
 import PersonInfo from './formComponents/PersonInfo';
 import EducationalData from './formComponents/EducationalData';
 import Work from './formComponents/Work';
+// import Project from './formComponents/Project';
+import './Form.css';
+import TemplateOne from '../../Pages/resume templates/template one/TemplateOne';
+import { useNavigate } from 'react-router-dom';
 import Skills from './formComponents/Skills';
 import Honors from './formComponents/Honors';
-import Project from './formComponents/Project';
-import './Form.css';
+// import { useLocation } from 'react-router';
 
 
 function Form(props) {
 
+    // const { chosenNum } = props;
     const [page, setPage] = useState(0);
 
+    // const location = useLocation();
+    let navigate = useNavigate();
+    // console.log(chosenNum.location.state);
+
     const [formData, setFormData] = useState({
-        firstname: "", lastname: "", uploadphoto: "", email: "", phone: "", jobtitle: "", objective: "",
+        firstname: "", lastname: "", photo: '', photoname: '', email: "", phone: "", jobtitle: "", objective: "",
         location: "", dob: "", linkedin: "", github: "",
         degreeug: "", universityug: "", yearsug: "", achievementsug: "", schoolXII: "", boardXII: "",
         yearsXII: "", achievementsXII: "", schoolX: "", boardX: "", yearsX: "", achievementsX: "",
-        fdjob: "", fdcompany: "", fddescription: "", skill: [], title: [], domain: [], duration: [], description: [],
+        fdjob: "", fdcompany: "", fdduration: "", fddescription: "", skill: [{ skill: '' }], date: [{ date: '' }], certificationTitle: [{ certificationTitle: '' }], authorityOfCertification: [{ authorityOfCertification: '' }], title: [{ title: '' }], domain: [{ domain: '' }], duration: [{ duration: '' }], description: [{ description: '' }]
     });
 
 
@@ -25,7 +33,7 @@ function Form(props) {
 
 
 
-    const FormTitles = ["Personal Information", "Education", "Work Experience", "Projects", "Skills", "Honours & Certifications"];
+    const FormTitles = ["Personal Information", "Education", "Work Experience", "Projects", "Skills", "Honours & Certifications", "Resume Template"];
 
     // For Switching between pages
     const PageDisplay = () => {
@@ -36,11 +44,14 @@ function Form(props) {
         } else if (page === 2) {
             return <Work formData={formData} setFormData={setFormData} />
         } else if (page === 3) {
-            return <Project formData={formData} setFormData={setFormData} />
+            return <EducationalData formData={formData} setFormData={setFormData} />
         } else if (page === 4) {
             return <Skills formData={formData} setFormData={setFormData} />
         } else if (page === 5) {
             return <Honors formData={formData} setFormData={setFormData} />
+        }
+        else if (page === 6) {
+            return <TemplateOne formData={formData} />
         }
     }
 
@@ -48,7 +59,7 @@ function Form(props) {
         <div className='form'>
             <div className="progressbar">
                 <div
-                    style={{ width: page === 0 ? "15%" : page === 1 ? "25%" : page === 2 ? "40%" : page === 3 ? "60%" : page === 4 ? "80%" : "100%" }}
+                    style={{ width: page === 0 ? "14.28%" : page === 1 ? "28.56%" : page === 2 ? "42.84%" : page === 3 ? "57.12%" : page === 4 ? "71.4%" : page === 5 ? "85.68%" : "100%" }}
                 ></div>
             </div>
 
@@ -69,8 +80,18 @@ function Form(props) {
                         onClick={() => { setPage((currPage) => currPage - 1) }}
                     >Back</button>
                     <button
-                        disabled={page === FormTitles.length - 1}
-                        onClick={() => { setPage((currPage) => currPage + 1) }}>Next</button>
+                        onClick={() => {
+                            if (page === FormTitles.length - 1) {
+                                alert("Resume successfully completed!");
+                                console.log(formData);
+                                navigate('/resume-download');
+                                // return < TemplateOne formData={formData} />
+                            } else {
+                                setPage((currPage) => currPage + 1);
+                            }
+                        }}
+                    >
+                        {page === FormTitles.length - 1 ? "Continue" : "Next"}   </button>
                 </div>
             </div>
             <br /><br />

@@ -5,6 +5,13 @@ import './PersonInfo.css';
 
 function PersonInfo({ formData, setFormData }) {
 
+    const changeHandler = (event) => {
+
+        setFormData({ ...formData, photo: URL.createObjectURL(event.target.files[0]), photoname: event.target.files[0].name });
+        // setFormData({ ...formData, photoname: event.target.files[0].name });
+        console.log(event.target.files[0].name);
+        console.log(formData)
+    };
 
     return (
         <div className="container">
@@ -21,8 +28,9 @@ function PersonInfo({ formData, setFormData }) {
 
                 {/* Upload Image */}
 
-                <label htmlFor="image">Upload Photo</label>
-                <input type="file" id="img" name="uploadphoto" accept="image/*" />
+                <label htmlFor="image">Upload Photo</label><label htmlFor="image">{formData.photoname}</label>
+                <input type="file" id="img" name="photo" accept="image/*" onChange={changeHandler}
+                />
                 <br />
 
                 {/* Email   */}

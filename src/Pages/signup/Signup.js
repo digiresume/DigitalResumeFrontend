@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 // import "./Signup.css"
 import Validation from './Validation';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 function Signup(props) {
 
