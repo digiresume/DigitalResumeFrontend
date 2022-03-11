@@ -6,12 +6,12 @@ import './PersonInfo.css';
 function PersonInfo({ formData, setFormData }) {
 
     const changeHandler = (event) => {
+        const data = {
+            photo: URL.createObjectURL(event.target.files[0]), photoname: event.target.files[0].name
+        };
+        setFormData({ ...formData, ...data });
+    }; console.log(formData);
 
-        setFormData({ ...formData, photo: URL.createObjectURL(event.target.files[0]), photoname: event.target.files[0].name });
-        // setFormData({ ...formData, photoname: event.target.files[0].name });
-        console.log(event.target.files[0].name);
-        console.log(formData)
-    };
 
     return (
         <div className="container">
