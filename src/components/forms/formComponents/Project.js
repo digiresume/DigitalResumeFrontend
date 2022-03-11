@@ -6,7 +6,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 
 
 function Project({ formData, setFormData }) {
-    const [projectinfos, setProjectinfos] = useState([{ title: "", domain: "", duration: "", description: "" },]);
+    const [projectinfos, setProjectinfos] = useState(formData.title, formData.domain, formData.duration, formData.description);
     // const [project,setProject]=useState([{title:"",domain:"",duration:"",description:""},]); 
 
     const handleAddFields = () => {
@@ -35,7 +35,12 @@ function Project({ formData, setFormData }) {
     console.log(projectinfos);
 
     return (
+
+
         <div className="container">
+
+
+            <AiOutlinePlus onClick={() => handleAddFields()} ></AiOutlinePlus>
             <form>
                 {/* Project details */}
 
@@ -56,13 +61,19 @@ function Project({ formData, setFormData }) {
                             <input type="text" id="fna" name="duration" placeholder="Project duration.." value={projectinfo.duration} onChange={event => handleChangeInput(index, event)} />
                             <label htmlFor="description" className='labelLname'>Project description</label>
                             {/* <input type="text" id="lname" name="description" placeholder="Project description.." value={formData.description} onChange={(event) => { setFormData({ ...formData, description: event.target.value }) }} />Project description */}
-                            <textarea className="review" name="description" rows="4" cols="50" placeholder="Write your project description.." value={projectinfo.description} onChange={event => handleChangeInput(index, event)}>
+                            <textarea className="review" name="description" rows="4" cols="50" value={projectinfo.description} onChange={event => handleChangeInput(index, event)}>
                             </textarea>
 
                             {/* </div> */}
 
-                            <AiOutlinePlus onClick={() => handleAddFields()} color="black"></AiOutlinePlus>
-                            <AiOutlineMinus onClick={() => handleRemoveFields()} color="black"></AiOutlineMinus>
+
+
+
+
+
+
+                            <AiOutlinePlus onClick={() => handleAddFields()} style={{ "color": "black" }} ></AiOutlinePlus>
+                            <AiOutlineMinus onClick={() => handleRemoveFields()} style={{ "color": "black" }} ></AiOutlineMinus>
                         </div>))
 
                 }
