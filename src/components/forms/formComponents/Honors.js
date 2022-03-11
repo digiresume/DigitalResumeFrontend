@@ -37,7 +37,7 @@ function Honors({ formData, setFormData }) {
     <>
       <Container>
         <section className="h-100 bg-dark">
-          {/* <BiPlus onClick={() => handleAddFields()} style={{ "color": "black" }} /> */}
+          <BiPlus onClick={() => handleAddFields()} style={{ "color": "black" }} />
           {/* <BiMinus onClick={() => handleRemoveFields()} style={{ "color": "black" }} /> */}
 
           <div className="col-xl-6">

@@ -50,6 +50,7 @@ function Skills({ formData, setFormData }) {
   return (
     <>
       <Container>
+        <BiPlus onClick={() => handleAddFields()} style={{ "color": "black" }} />
 
         <form onSubmit={handleSubmit}>
           {skillFields.map((inputField, index) => (
