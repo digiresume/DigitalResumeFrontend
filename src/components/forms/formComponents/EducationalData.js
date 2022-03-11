@@ -17,7 +17,7 @@ function EducationalData({ formData, setFormData }) {
             <input type="text" id="lname" name="lastname" placeholder="Your University name.." value={formData.universityug} onChange={(event) => { setFormData({ ...formData, universityug: event.target.value }) }} required />
           </div>
 
-          <label htmlFor="lname">Course Durtion</label>
+          <label htmlFor="lname">Course Duration</label>
           <input type="text" id="lname" name="lastname" placeholder="Years attended.." value={formData.yearsug} onChange={(event) => { setFormData({ ...formData, yearsug: event.target.value }) }} required />
 
           <label htmlFor="subject">Course Details/Achievements</label>
@@ -35,7 +35,7 @@ function EducationalData({ formData, setFormData }) {
             <input type="text" id="lname" name="lastname" placeholder="Enter your board name.." value={formData.boardXII} onChange={(event) => { setFormData({ ...formData, boardXII: event.target.value }) }} required />
           </div>
 
-          <label htmlFor="lname">Course Durtion</label>
+          <label htmlFor="lname">Course Duration</label>
           <input type="text" id="lname" name="lastname" placeholder="Years attended.." value={formData.yearsXII} onChange={(event) => { setFormData({ ...formData, yearsXII: event.target.value }) }} required />
 
           <label htmlFor="subject">Course Details/Achievements</label>
@@ -55,7 +55,7 @@ function EducationalData({ formData, setFormData }) {
             <input type="text" id="lname" name="lastname" placeholder="Enter your board name.." value={formData.boardX} onChange={(event) => { setFormData({ ...formData, boardX: event.target.value }) }} required />
           </div>
 
-          <label htmlFor="lname">Course Durtion</label>
+          <label htmlFor="lname">Course Duration</label>
           <input type="text" id="lname" name="lastname" placeholder="Years attended.." value={formData.yearsX} onChange={(event) => { setFormData({ ...formData, yearsX: event.target.value }) }} required />
 
           <label htmlFor="subject">Course Details/Achievements</label>

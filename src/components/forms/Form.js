@@ -25,7 +25,7 @@ function Form(props) {
         location: "", dob: "", linkedin: "", github: "",
         degreeug: "", universityug: "", yearsug: "", achievementsug: "", schoolXII: "", boardXII: "",
         yearsXII: "", achievementsXII: "", schoolX: "", boardX: "", yearsX: "", achievementsX: "",
-        fdjob: "", fdcompany: "", fdduration: "", fddescription: "", skill: [{ skill: '' }], date: [{ date: '' }], certificationTitle: [{ certificationTitle: '' }], authorityOfCertification: [{ authorityOfCertification: '' }], title: [{ title: '' }], domain: [{ domain: '' }], duration: [{ duration: '' }], description: [{ description: '' }]
+        fdjob: "", fdcompany: "", fdduration: "", fddescription: "", skill: [{ skill: '' }], date: [{ date: '' }], certificationTitle: [{ certificationTitle: '' }], authorityOfCertification: [{ authorityOfCertification: '' }], title: [{ title: '' }], description: [{ description: '' }]
     });
 
 
@@ -91,7 +91,7 @@ function Form(props) {
                             }
                         }}
                     >
-                        {page === FormTitles.length - 1 ? "Continue" : "Next"}   </button>
+                        {page === FormTitles.length - 1 ? "Feedback" : "Next"}   </button>
                 </div>
             </div>
             <br /><br />

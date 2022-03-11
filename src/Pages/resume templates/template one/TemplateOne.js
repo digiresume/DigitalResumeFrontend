@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './TemplateOne.css';
-// import { Page, Document } from '@react-pdf/renderer';
+import { useReactToPrint } from "react-to-print";
+import { RWebShare } from "react-web-share";
+
+
 
 function TemplateOne(props) {
+
+
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+    });
+
 
     let { formData } = props;
 
@@ -13,9 +23,8 @@ function TemplateOne(props) {
 
         <div className='templateOne'>
 
-            {/* <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" /> */}
             <div id="doc2" className="yui-t7">
-                <div id="inner" className='innerOne'>
+                <div id="inner" className='innerOne' ref={componentRef}>
 
                     <div id="hd">
                         <div className="yui-gc">
@@ -106,29 +115,54 @@ function TemplateOne(props) {
                                     </div>
                                     <div className="yui-u">
 
-                                        <div className="project">
-                                            <h2>Facebook</h2>
-                                            <h3>Senior Interface Designer</h3>
-                                            <h4>2005-2007</h4>
-                                            <p>Intrinsicly enable optimal core competencies through corporate relationships. Phosfluorescently implement worldwide vortals and client-focused imperatives. Conveniently initiate virtual paradigms and top-line convergence. </p>
+                                        <div className="honors">
+                                            {/* <div><h3>Title</h3><h3>{formData.title.map((i, key) => (
+                                                <div key={key}>{i.title}</div>
+                                            ))}</h3></div>
+                                            <div><h3>Domain</h3><h3>{formData.domain.map((i, key) => (
+                                                <div key={key}>{i.domain}</div>
+                                            ))}</h3></div>
+                                            <div><h3>Duration</h3><h3>{formData.duration.map((i, key) => (
+                                                <div key={key}>{i.duration}</div>
+                                            ))}</h3></div>
+                                            <div><h3>description</h3><h3>{formData.description.map((i, key) => (
+                                                <div key={key}>{i.description}</div>
+                                            ))}</h3></div> */}
+
+                                            <table className='table' style={{ "width": "100%" }}>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Title</th>
+                                                        {/* <th>Domain</th> */}
+                                                        {/* <th>Duration</th> */}
+                                                        <th>Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody className='tableBody'>
+                                                    <tr style={{ 'rowspan': 2 }}>
+                                                        <td>{formData.title.map((i, key) => (
+                                                            <ul key={key}><li>{i.title} </li></ul>
+                                                        ))}</td>
+                                                        {/* <td>{formData.domain.map((i, key) => (
+                                                            <ul key={key}><li>{i.domain}</li></ul>
+                                                        ))}</td> */}
+                                                        {/* <td>{formData.duration.map((i, key) => (
+                                                            <ul key={key}><li>{i.duration}</li></ul>
+                                                        ))}</td> */}
+                                                        <td>{formData.description.map((i, key) => (
+                                                            <ul key={key}><li>{i.description}</li></ul>
+                                                        ))}</td>
+                                                    </tr>
+
+
+
+                                                </tbody>
+
+                                            </table>
                                         </div>
-
-
-                                        {/* <h6>{formData.title.map((i, key) => (
-                                                    <div key={key}>{i.title}</div>
-                                                ))}</h6>
-                                                <br /><br />
-                                                <h6>{formData.domain.map((i, key) => (
-                                                    <div key={key}>{i.domain}</div>
-                                                ))}</h6><br /><br />
-                                                <h6>{formData.duration.map((i, key) => (
-                                                    <div key={key}>{i.duration}</div>
-                                                ))}</h6><br /><br />
-                                                <h6>{formData.description.map((i, key) => (
-                                                    <div key={key}>{i.description}</div>
-                                                ))}</h6> */}
                                     </div>
                                 </div>
+
 
                                 <div className="yui-gf last">
                                     <div className="yui-u first">
@@ -187,6 +221,20 @@ function TemplateOne(props) {
 
                 </div>
 
+                <div className='pdfButtons'>
+                    <button onClick={handlePrint}>Download Resume</button>
+
+                    <RWebShare
+                        data={{
+                            text: "Sleekcv's Resume",
+                            url: "http://localhost:3000",
+                            title: "Resume Link",
+                        }}
+                        onClick={() => console.log("shared successfully!")}
+                    >
+                        <button>Share on Web</button>
+                    </RWebShare>
+                </div>
 
             </div>
 
