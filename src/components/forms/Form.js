@@ -5,7 +5,8 @@ import Work from './formComponents/Work';
 import Project from './formComponents/Project';
 import './Form.css';
 // import TemplateOne from '../../Pages/resume templates/template one/TemplateOne';
-import TemplateTwo from '../../Pages/resume templates/template two/TemplateTwo';
+// import TemplateTwo from '../../Pages/resume templates/template two/TemplateTwo';
+import TemplateThree from '../../Pages/resume templates/template three/TemplateThree';
 import { useNavigate } from 'react-router-dom';
 import Skills from './formComponents/Skills';
 import Honors from './formComponents/Honors';
@@ -52,7 +53,7 @@ function Form(props) {
             return <Honors formData={formData} setFormData={setFormData} />
         }
         else if (page === 6) {
-            return <TemplateTwo formData={formData} />
+            return <TemplateThree formData={formData} />
         }
     }
 
