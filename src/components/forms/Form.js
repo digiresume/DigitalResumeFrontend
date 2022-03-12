@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import PersonInfo from './formComponents/PersonInfo';
 import EducationalData from './formComponents/EducationalData';
 import Work from './formComponents/Work';
-// import Project from './formComponents/Project';
+import Project from './formComponents/Project';
 import './Form.css';
-import TemplateOne from '../../Pages/resume templates/template one/TemplateOne';
+// import TemplateOne from '../../Pages/resume templates/template one/TemplateOne';
+import TemplateTwo from '../../Pages/resume templates/template two/TemplateTwo';
 import { useNavigate } from 'react-router-dom';
 import Skills from './formComponents/Skills';
 import Honors from './formComponents/Honors';
@@ -44,14 +45,14 @@ function Form(props) {
         } else if (page === 2) {
             return <Work formData={formData} setFormData={setFormData} />
         } else if (page === 3) {
-            return <EducationalData formData={formData} setFormData={setFormData} />
+            return <Project formData={formData} setFormData={setFormData} />
         } else if (page === 4) {
             return <Skills formData={formData} setFormData={setFormData} />
         } else if (page === 5) {
             return <Honors formData={formData} setFormData={setFormData} />
         }
         else if (page === 6) {
-            return <TemplateOne formData={formData} />
+            return <TemplateTwo formData={formData} />
         }
     }
 

@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import { SidebarData } from './SidebarData';
 import './Header.css';
 import { IconContext } from 'react-icons/lib';
+import { Context } from "../context/Context";
 
 function Header(props) {
+
+    const { user, dispatch } = useContext(Context);
+
+
+    const handleLogout = () => {
+        dispatch({ type: "LOGOUT" });
+    };
+
 
     // sidebar
     const [sidebar, setSidebar] = useState(false);
@@ -46,46 +54,38 @@ function Header(props) {
                                 <AiIcons.AiOutlineClose />
                             </Link>
                         </li>
-                        {SidebarData.map((item, index) => {
-                            return (
-                                <li key={index} className={item.cName}>
-                                    <Link to={item.path}>
-                                        {item.icon}
-                                        <span>{item.title}</span>
-                                    </Link>
-                                </li>
-                            );
-                        })}
+
+                        <li className="nav-text">
+                            <Link to="/" onClick={handleLogout}>
+                                <span>{user && "Logout"}</span></Link>
+                        </li>
+                        <li className="nav-text">
+                            <Link to="/">
+                                {/* <AiIcons.AiFillHome /> */}
+                                <span>Home</span></Link>
+                        </li>
+                        <li className="nav-text">
+                            <Link to="/about">
+                                {/* <AiIcons.AiFillBulb /> */}
+                                <span>About</span></Link>
+                        </li>
+
+                        <li className="nav-text">
+                            <Link to="/api/auth/login">
+                                {/* <AiIcons.AiOutlineLogin /> */}
+                                <span>{!user && "Login"}</span></Link>
+                        </li>
+                        <li className="nav-text">
+                            <Link to="/api/auth/register">
+                                {/* <AiIcons.AiOutlineDesktop /> */}
+                                <span>{!user && "Signup"}</span></Link>
+                        </li>
+
+
                     </ul>
                 </nav>
             </IconContext.Provider>
         </>
-
-
-
-
-        // <div>
-        //     <header id="header" className="alt">
-        //         <h1><Link to="/" z>Sleekcvs</Link></h1>
-        //         <nav id="nav">
-        //             <ul>
-        //                 <li className="special">
-        //                     <Link to="#" className="menuToggle"><span>Menu</span></Link>
-        //                     <div id="menu">
-        //                         < ul >
-        //                             <li><Link to="/">Home</Link></li>
-        //                             <li><Link to="#">About Us</Link></li>
-        //                             <li><Link to="#">Sign Up</Link></li>
-        //                             <li><Link to="#">Log In</Link></li>
-        //                         </ul>
-        //                     </div>
-
-        //                 </li>
-        //             </ul>
-        //         </nav >
-        //     </header >
-
-        // </div >
     );
 }
 

@@ -116,25 +116,11 @@ function TemplateOne(props) {
                                     <div className="yui-u">
 
                                         <div className="honors">
-                                            {/* <div><h3>Title</h3><h3>{formData.title.map((i, key) => (
-                                                <div key={key}>{i.title}</div>
-                                            ))}</h3></div>
-                                            <div><h3>Domain</h3><h3>{formData.domain.map((i, key) => (
-                                                <div key={key}>{i.domain}</div>
-                                            ))}</h3></div>
-                                            <div><h3>Duration</h3><h3>{formData.duration.map((i, key) => (
-                                                <div key={key}>{i.duration}</div>
-                                            ))}</h3></div>
-                                            <div><h3>description</h3><h3>{formData.description.map((i, key) => (
-                                                <div key={key}>{i.description}</div>
-                                            ))}</h3></div> */}
 
                                             <table className='table' style={{ "width": "100%" }}>
                                                 <thead>
                                                     <tr>
                                                         <th>Title</th>
-                                                        {/* <th>Domain</th> */}
-                                                        {/* <th>Duration</th> */}
                                                         <th>Description</th>
                                                     </tr>
                                                 </thead>
@@ -143,12 +129,6 @@ function TemplateOne(props) {
                                                         <td>{formData.title.map((i, key) => (
                                                             <ul key={key}><li>{i.title} </li></ul>
                                                         ))}</td>
-                                                        {/* <td>{formData.domain.map((i, key) => (
-                                                            <ul key={key}><li>{i.domain}</li></ul>
-                                                        ))}</td> */}
-                                                        {/* <td>{formData.duration.map((i, key) => (
-                                                            <ul key={key}><li>{i.duration}</li></ul>
-                                                        ))}</td> */}
                                                         <td>{formData.description.map((i, key) => (
                                                             <ul key={key}><li>{i.description}</li></ul>
                                                         ))}</td>
