@@ -14,8 +14,13 @@ import UserHome from "./Pages/user home/UserHome";
 import TemplateOne from "./Pages/resume templates/template one/TemplateOne";
 import ChooseTemplate from "./Pages/choose template/ChooseTemplate";
 import Pdf from "./Pages/react to pdf/Pdf";
+import { useState } from 'react';
 
 function App() {
+
+  const [templateNum, setTemplateNum] = useState(0);
+
+
   return (
     <Router>
       <Header />
@@ -27,11 +32,11 @@ function App() {
           <Route exact path="/api/auth/register" element={<SignUp />} />
           <Route exact path="/api/auth/forgotpassword" element={<ForgotPassword />} />
           <Route exact path="/api/auth/resetpassword/:resetToken" element={<ResetPassword />} />
-          <Route exact path="/form" element={<Form />} />
+          <Route exact path="/form" element={<Form templateNum={templateNum} />} />
           <Route exact path="/admin" element={<Admin />} />
           <Route exact path="/user-home" element={<UserHome />} />
           <Route exact path="/template-one" element={<TemplateOne />} />
-          <Route exact path="/choose-template" element={<ChooseTemplate />} />
+          <Route exact path="/choose-template" element={<ChooseTemplate setTemplateNum={setTemplateNum} />} />
           <Route exact path="/resume-download" element={<Pdf />} />
         </Routes>
       </div>

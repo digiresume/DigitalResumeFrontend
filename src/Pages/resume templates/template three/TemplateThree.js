@@ -14,12 +14,12 @@ function TemplateThree(props) {
 
     return (
         <div>
-            <div className='resumeTemplateTwo'>
-                <div className='twoContainer' ref={componentRef}>
+            <div className='resumeTemplateThree'>
+                <div className='threeContainer' ref={componentRef}>
                     <div className='twoBody'>
 
                         {/* Side Section- START */}
-                        <div className='sideSection'>
+                        <div className='sideSectionThree'>
 
                             {/* Peronsal Details */}
                             <div>
@@ -33,7 +33,7 @@ function TemplateThree(props) {
                                 </div>
 
                                 {/* Profile Photo */}
-                                <div className='twoImage'>
+                                <div className='threeImage'>
                                     <img src={formData.photo} alt="profile pic" />
                                 </div>
 
@@ -42,22 +42,22 @@ function TemplateThree(props) {
 
                                 {/* Job Title */}
                                 <br />
-                                <div className='twoTitle'>
+                                <div className='threeTitle'>
                                     <p>{formData.jobtitle}</p>
                                 </div>
 
                                 {/* Email  */}
-                                <div className='twoEmail'>
+                                <div className='threeEmail'>
                                     <p>{formData.email}</p>
                                 </div>
 
                                 {/* Phone  */}
-                                <div className='twoPhone'>
+                                <div className='threePhone'>
                                     <p>{formData.phone}</p>
                                 </div>
 
                                 {/* Social Links */}
-                                <div className='twoSocial'>
+                                <div className='threeSocial'>
                                     <div className='socialIconsThree'>
                                         <a href={formData.linkedin}><h3>{formData.linkedin ? <i className="fab fa-linkedin fa-1x three" /> : ''}</h3></a>
                                         <a href={formData.github}><h3>{formData.github ? <i className="fab fa-github fa-1x three" /> : ''}</h3></a>
@@ -126,13 +126,13 @@ function TemplateThree(props) {
                                 <div>
                                     <table className='threeTable' style={{ "width": "100%" }}>
                                         <thead>
-                                            <tr>
+                                            <tr className='threeHead'>
                                                 <th>Title</th>
                                                 <th>Description</th>
                                             </tr>
                                         </thead>
                                         <tbody className='threeTableBody'>
-                                            <tr style={{ 'rowspan': 2 }}>
+                                            <tr className='threeRow' style={{ 'rowspan': 2 }}>
                                                 <td>{formData.title.map((i, key) => (
                                                     <ul key={key}><li>{i.title} <br /><br /><br /></li></ul>
                                                 ))}</td>

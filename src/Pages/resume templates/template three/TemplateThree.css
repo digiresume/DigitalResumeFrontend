@@ -3,13 +3,13 @@
   padding: 0;
 }
 
-.resumeTemplateTwo{
+.resumeTemplateThree{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.twoContainer{
+.threeContainer{
   background-color: #fff;
   width: 51.7%;
 }
@@ -21,7 +21,7 @@
 }
 
 /* Resume Body */
-.twoBody{
+.threeBody{
   display: inline-flex;
   border: 0.5px solid black;
 }
@@ -40,21 +40,20 @@
 }
 
 
-.sideSection{
-  
+.sideSectionThree{
   width: 18rem;
   min-height: 74.8rem;
 }
 
 /* Profile Photo */
 
-.twoImage{
+.threeImage{
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.twoImage img{
+.threeImage img{
   margin-top: -77px;
   width:80%;
   height: 14rem;
@@ -72,58 +71,58 @@
 
 /* JobTitle */
 
-.twoTitle{
+.threeTitle{
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   margin-left: 4%;
 }
 
-.twoTitle p{
+.threeTitle p{
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   color: brown;
-  font-size: 18px;
+  font-size: 14px;
   
 }
 
 
 
 /* Email */
-.twoEmail{
+.threeEmail{
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   margin-left: 4%;
 }
 
-.twoEmail p{
+.threeEmail p{
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   color:brown;
   margin-top: -2rem;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 /* Phone */
-.twoPhone{
+.threePhone{
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   margin-left: 4%;
 }
 
-.twoPhone p{
+.threePhone p{
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   color: brown;
   margin-top: -2rem;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 
 /* Social Links */
-.twoSocial{
+.threeSocial{
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -170,7 +169,7 @@ border: none;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   color: rgb(31, 30, 30);
-  font-size: 18px;
+  font-size: 14px;
 }
 
 /* Side section of the resume -END */
@@ -263,7 +262,16 @@ border: none;
 }
 
 
-.threeTable ,th, td {
+/* .threeTable ,th, td {
+  border: 2px solid brown !important;
+  background-color: rgba(250, 210, 169, 0.219);
+} */
+
+.threeHead th{
+  border: 2px solid brown !important;
+}
+
+.threeRow td{
   border: 2px solid brown !important;
   background-color: rgba(250, 210, 169, 0.219);
 }
@@ -353,6 +361,7 @@ border: none;
 
 .honoursListThree h4{
   margin-right: 2rem;
+  font-size: small;
 }
 
 .honoursListThree p{

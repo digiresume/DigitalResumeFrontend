@@ -4,23 +4,24 @@ import EducationalData from './formComponents/EducationalData';
 import Work from './formComponents/Work';
 import Project from './formComponents/Project';
 import './Form.css';
-// import TemplateOne from '../../Pages/resume templates/template one/TemplateOne';
-// import TemplateTwo from '../../Pages/resume templates/template two/TemplateTwo';
+import TemplateOne from '../../Pages/resume templates/template one/TemplateOne';
+import TemplateTwo from '../../Pages/resume templates/template two/TemplateTwo';
 import TemplateThree from '../../Pages/resume templates/template three/TemplateThree';
 import { useNavigate } from 'react-router-dom';
 import Skills from './formComponents/Skills';
 import Honors from './formComponents/Honors';
-// import { useLocation } from 'react-router';
+
 
 
 function Form(props) {
 
-    // const { chosenNum } = props;
+    const { templateNum } = props;
+
     const [page, setPage] = useState(0);
 
-    // const location = useLocation();
+
     let navigate = useNavigate();
-    // console.log(chosenNum.location.state);
+
 
     const [formData, setFormData] = useState({
         firstname: "", lastname: "", photo: '', photoname: '', email: "", phone: "", jobtitle: "", objective: "",
@@ -53,7 +54,16 @@ function Form(props) {
             return <Honors formData={formData} setFormData={setFormData} />
         }
         else if (page === 6) {
-            return <TemplateThree formData={formData} />
+            if (templateNum === 1) {
+                return <TemplateOne formData={formData} />
+            }
+            else if (templateNum === 2) {
+                return <TemplateTwo formData={formData} />
+            }
+            else if (templateNum === 3) {
+                return <TemplateThree formData={formData} />
+            }
+
         }
     }
 

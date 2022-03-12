@@ -43,7 +43,7 @@
 }
 
 .twoImage img{
-  width:50%;
+  width:50% !important;
 }
 
 /* Name */
@@ -72,7 +72,7 @@
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   color: rgb(31, 30, 30);
-  font-size: 18px;
+  font-size: 15px;
   
 }
 
@@ -91,7 +91,7 @@
   font-weight: bold;
   color: rgb(31, 30, 30);
   margin-top: -2rem;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 /* Phone */
@@ -107,7 +107,7 @@
   font-weight: bold;
   color: rgb(31, 30, 30);
   margin-top: -2rem;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 
@@ -162,7 +162,8 @@ border: none;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   color: rgb(31, 30, 30);
-  font-size: 18px;
+  font-size: 15px;
+  list-style: disc;
 }
 
 /* Side section of the resume -END */
@@ -356,6 +357,7 @@ border: none;
 
 .honoursList h4{
   margin-right: 2rem;
+  font-size: small;
 }
 
 .honoursList p{

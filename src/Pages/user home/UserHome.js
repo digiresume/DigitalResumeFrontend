@@ -86,7 +86,7 @@ function UserHome(props) {
 
             {/* button */}
             <div className='userHomeBtn'>
-                <Link to='/form' className='btnText'><button> Create Resume</button></Link>
+                <Link to='/choose-template' className='btnText'><button> Create Resume</button></Link>
             </div >
             <br /><br /><br /><br />
 
