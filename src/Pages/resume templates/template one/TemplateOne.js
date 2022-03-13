@@ -78,7 +78,7 @@ function TemplateOne(props) {
                                         </div>
 
                                         <div className="yui-u ">
-                                            <ul className="talent">
+                                            <ul className="talent oneSkillList">
                                                 {formData.skill.map((i, key) => (
                                                     <li key={key}>{i.skill}</li>
                                                 ))}
@@ -125,7 +125,7 @@ function TemplateOne(props) {
                                                     </tr>
                                                 </thead>
                                                 <tbody className='tableBody'>
-                                                    <tr style={{ 'rowspan': 2 }}>
+                                                    <tr className="tableList" style={{ 'rowspan': 2 }}>
                                                         <td>{formData.title.map((i, key) => (
                                                             <ul key={key}><li>{i.title} </li></ul>
                                                         ))}</td>

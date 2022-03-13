@@ -40,7 +40,7 @@ function Project({ formData, setFormData }) {
         <div className="container">
 
 
-            <AiOutlinePlus onClick={() => handleAddFields()} ></AiOutlinePlus>
+            <AiOutlinePlus onClick={() => handleAddFields()} style={{ 'color': 'black' }}></AiOutlinePlus>
             <form>
                 {/* Project details */}
 
