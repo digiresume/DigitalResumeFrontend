@@ -12,9 +12,12 @@ import AboutUs from "./Pages/about/AboutUs";
 import Footer from "./components/footer/Footer";
 import UserHome from "./Pages/user home/UserHome";
 import TemplateOne from "./Pages/resume templates/template one/TemplateOne";
+import TemplateTwo from "./Pages/resume templates/template two/TemplateTwo";
+import TemplateThree from "./Pages/resume templates/template three/TemplateThree";
 import ChooseTemplate from "./Pages/choose template/ChooseTemplate";
 import Pdf from "./Pages/react to pdf/Pdf";
 import { useState } from 'react';
+import Error from "./components/error/Error";
 
 function App() {
 
@@ -32,12 +35,15 @@ function App() {
           <Route exact path="/api/auth/register" element={<SignUp />} />
           <Route exact path="/api/auth/forgotpassword" element={<ForgotPassword />} />
           <Route exact path="/api/auth/resetpassword/:resetToken" element={<ResetPassword />} />
-          <Route exact path="/form" element={<Form templateNum={templateNum} />} />
+          <Route exact path="/form/:templateNum" element={<Form templateNum={templateNum} />} />
           <Route exact path="/admin" element={<Admin />} />
           <Route exact path="/user-home" element={<UserHome />} />
           <Route exact path="/template-one" element={<TemplateOne />} />
-          <Route exact path="/choose-template" element={<ChooseTemplate setTemplateNum={setTemplateNum} />} />
+          <Route exact path="/template-two" element={<TemplateTwo />} />
+          <Route exact path="/template-three" element={<TemplateThree />} />
+          <Route exact path="/choose-template" element={<ChooseTemplate templateNum={templateNum} setTemplateNum={setTemplateNum} />} />
           <Route exact path="/resume-download" element={<Pdf />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </div>
       <Footer />

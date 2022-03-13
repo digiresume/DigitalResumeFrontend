@@ -54,13 +54,13 @@ function Form(props) {
             return <Honors formData={formData} setFormData={setFormData} />
         }
         else if (page === 6) {
-            if (templateNum === 3) {
+            if (templateNum === 1) {
                 return <TemplateOne formData={formData} />
             }
-            else if (templateNum === 1) {
+            else if (templateNum === 2) {
                 return <TemplateTwo formData={formData} />
             }
-            else if (templateNum === 2) {
+            else if (templateNum === 3) {
                 return <TemplateThree formData={formData} />
             }
 

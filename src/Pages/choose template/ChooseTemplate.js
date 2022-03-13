@@ -4,7 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import tempTwoImage from './image/Template Two.png'
 import tempThreeImage from './image/Template Three.png'
 
+
 let ChooseTemplate = (props) => {
+
+  let { templateNum } = props;
 
   let navigate = useNavigate();
 
@@ -24,14 +27,15 @@ let ChooseTemplate = (props) => {
 
         <div className="slides">
           <div id="slide-1">
-            <img src={tempTwoImage} style={{ 'height': 'fit-content' }} alt="" />
-          </div>
-          <div id="slide-2">
-            <img src={tempThreeImage} style={{ 'height': 'fit-content' }} alt="" />
-          </div>
-          <div id="slide-3">
             <img src="https://www.linkpicture.com/q/photo_2022-03-08_13-37-04.jpg" alt="" />
           </div>
+          <div id="slide-2">
+            <img src={tempTwoImage} style={{ 'height': 'fit-content' }} alt="" />
+          </div>
+          <div id="slide-3">
+            <img src={tempThreeImage} style={{ 'height': 'fit-content' }} alt="" />
+          </div>
+
 
         </div>
 
@@ -40,7 +44,7 @@ let ChooseTemplate = (props) => {
           <div className='tempButtonOne'>
             <button onClick={(e) => {
               props.setTemplateNum(1);
-              navigate('/form');
+              navigate(`/form/${templateNum}`);
 
             }}>Click here for Template 1</button>
           </div>
@@ -48,14 +52,14 @@ let ChooseTemplate = (props) => {
           <div className='tempButtonTwo'>
             <button onClick={(e) => {
               props.setTemplateNum(2);
-              navigate('/form');
+              navigate(`/form/${templateNum}`);
             }}>Click here for Template 2</button>
           </div>
 
           <div className='tempButtonThree'>
             <button onClick={(e) => {
               props.setTemplateNum(3);
-              navigate('/form');
+              navigate(`/form/${templateNum}`);
             }}>Click here for Template 3</button>
           </div>
         </div>

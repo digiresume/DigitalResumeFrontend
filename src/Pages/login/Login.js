@@ -3,7 +3,7 @@ import "./Login.css"
 // import Validation from './Validation';
 // import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Context } from "../../components/context/Context"
+import { Context } from "../../components/context/Context";
 // import Design from './design';
 // import { Link } from 'react-router-dom';
 // import Articlelist from '../article/Articlelist';

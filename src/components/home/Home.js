@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-scroll';
 import Pic01 from '../images/pic01.jpg';
 import Pic02 from '../images/pic02.jpg';
 import Pic03 from '../images/pic03.jpg';
-
+import { Context } from "../context/Context";
+import { useNavigate } from 'react-router-dom';
 
 
 function Home(props) {
+
+    let navigate = useNavigate();
+    const { user, dispatch, isFetching } = useContext(Context);
+
+    const handleClick = () => {
+        if (user) {
+            navigate('/user-home');
+        } else {
+            navigate('/api/auth/register')
+        }
+    }
+
     return (
         <div>
 
@@ -23,7 +36,7 @@ function Home(props) {
                             dream job</p>
 
                         <ul className="actions special">
-                            <li><a href="/api/auth/register" className="button primary">Create your resume</a></li>
+                            <li><div onClick={handleClick} className="button primary">Create your resume</div></li>
                         </ul>
                     </div>
                     <Link to="one" className="more scrolly" smooth={true} duration={1000}>Learn More</Link>
