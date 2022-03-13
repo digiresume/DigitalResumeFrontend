@@ -18,6 +18,7 @@ import ChooseTemplate from "./Pages/choose template/ChooseTemplate";
 import Pdf from "./Pages/react to pdf/Pdf";
 import { useState } from 'react';
 import Error from "./components/error/Error";
+import ViewProfile from "./Pages/admin/ViewProfile";
 
 function App() {
 
@@ -35,14 +36,16 @@ function App() {
           <Route exact path="/api/auth/register" element={<SignUp />} />
           <Route exact path="/api/auth/forgotpassword" element={<ForgotPassword />} />
           <Route exact path="/api/auth/resetpassword/:resetToken" element={<ResetPassword />} />
-          <Route exact path="/form/:templateNum" element={<Form templateNum={templateNum} />} />
-          <Route exact path="/admin" element={<Admin />} />
+          <Route exact path="/api/user/resume/:templateNum" element={<Form templateNum={templateNum} />} />
+          {/* <Route exact path="/admin" element={<Admin />} /> */}
+          <Route exact path="/api/admin" element={<Admin />} />
           <Route exact path="/user-home" element={<UserHome />} />
           <Route exact path="/template-one" element={<TemplateOne />} />
           <Route exact path="/template-two" element={<TemplateTwo />} />
           <Route exact path="/template-three" element={<TemplateThree />} />
           <Route exact path="/choose-template" element={<ChooseTemplate templateNum={templateNum} setTemplateNum={setTemplateNum} />} />
-          <Route exact path="/resume-download" element={<Pdf />} />
+          <Route exact path="/api/user/comments" element={<Pdf />} />
+          <Route exact path="/api/admin/:name" element={<ViewProfile />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

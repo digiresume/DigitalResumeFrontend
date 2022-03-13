@@ -2,10 +2,13 @@
 import React, { useState } from 'react';
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
+import { useParams } from 'react-router-dom';
 
 
 
 function Project({ formData, setFormData }) {
+
+    const { templateNum } = useParams();
     const [projectinfos, setProjectinfos] = useState(formData.title, formData.description);
     // const [project,setProject]=useState([{title:"",domain:"",duration:"",description:""},]); 
 
@@ -31,8 +34,26 @@ function Project({ formData, setFormData }) {
 
     }
 
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const isadmin = false;
+        const title = formData.title;
+        const description = formData.description;
+        const fdduration = formData.fdduration;
+        const fddescription = formData.fddescription;
 
-    console.log(projectinfos);
+
+        const response = await fetch(`/api/user/resume/${templateNum}`, {
+            method: 'post',
+            body: JSON.stringify({ title, description, fdduration, fddescription }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const body = await response.json();
+        console.log(body)
+        alert(body.msg)
+    }
 
     return (
 
@@ -41,7 +62,7 @@ function Project({ formData, setFormData }) {
 
 
             <AiOutlinePlus onClick={() => handleAddFields()} style={{ 'color': 'black' }}></AiOutlinePlus>
-            <form>
+            <form method="post" onSubmit={handleSubmit}>
                 {/* Project details */}
 
                 {
@@ -68,7 +89,7 @@ function Project({ formData, setFormData }) {
                         </div>))
 
                 }
-
+                <button style={{ "color": "blue", "backgroundColor": "grey" }} type='submit'>Save Your data</button>
             </form>
 
         </div>

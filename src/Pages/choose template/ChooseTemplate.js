@@ -44,7 +44,7 @@ let ChooseTemplate = (props) => {
           <div className='tempButtonOne'>
             <button onClick={(e) => {
               props.setTemplateNum(1);
-              navigate(`/form/${templateNum}`);
+              navigate(`/api/user/resume/${templateNum}`);
 
             }}>Click here for Template 1</button>
           </div>
@@ -52,14 +52,14 @@ let ChooseTemplate = (props) => {
           <div className='tempButtonTwo'>
             <button onClick={(e) => {
               props.setTemplateNum(2);
-              navigate(`/form/${templateNum}`);
+              navigate(`/api/user/resume/${templateNum}`);
             }}>Click here for Template 2</button>
           </div>
 
           <div className='tempButtonThree'>
             <button onClick={(e) => {
               props.setTemplateNum(3);
-              navigate(`/form/${templateNum}`);
+              navigate(`/api/user/resume/${templateNum}`);
             }}>Click here for Template 3</button>
           </div>
         </div>

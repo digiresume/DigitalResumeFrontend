@@ -1,19 +1,34 @@
 import React, { useState } from 'react';
 import { Container, Form } from 'react-bootstrap';
 import { BiPlus, BiMinus } from "react-icons/bi";
-
+import { useParams } from 'react-router-dom';
 
 function Honors({ formData, setFormData }) {
 
+  const { templateNum } = useParams();
   // console.log(formData)
   const [honourFields, setHonourField] = useState(formData.authorityOfCertification, formData.certificationTitle, formData.date)
   // const [honourFields, setHonourField] = useState(formData.honor[{honor:''}])
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Input Fields", honourFields)
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const isadmin = false;
+    const date = formData.date;
+    const certificationTitle = formData.certificationTitle;
+    const authorityOfCertification = formData.authorityOfCertification;
+
+    const response = await fetch(`/api/user/resume/${templateNum}`, {
+      method: 'post',
+      body: JSON.stringify({ date, certificationTitle, authorityOfCertification }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const body = await response.json();
+    alert(body.msg)
   }
-  console.log(formData)
+
+
 
   const handleChangeInput = (index, event) => {
     const values = [...honourFields];
@@ -42,13 +57,13 @@ function Honors({ formData, setFormData }) {
 
           <div className="col-xl-6">
             <div className="card-body p-md-5 text-black">
-              <form onSubmit={handleSubmit}>
+              <form method="post" onSubmit={handleSubmit}>
                 {honourFields.map((inputField, index) => (
                   <div key={index}>
                     <div className="row">
                       <div className="col-md-6 mb-4">
                         <label className="form-label" htmlFor="form3Example1m">Date of Issued Certification</label>
-                        <input type="date" id="date" name="date" className='date' value={inputField.date} onChange={event => handleChangeInput(index, event)}  ></input>
+                        <input type="text" id="date" name="date" className='date' value={inputField.date} onChange={event => handleChangeInput(index, event)}  ></input>
                       </div>
 
                       <div className="col-md-6 mb-4">
@@ -67,7 +82,7 @@ function Honors({ formData, setFormData }) {
 
                   </div>
                 ))}
-
+                <button style={{ "color": "blue", "backgroundColor": "grey" }} type='submit'>Save Your data</button>
               </form>
 
             </div>

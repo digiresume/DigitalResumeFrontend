@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./Addcomment.css"
 
 function Addcomment(props) {
-    const [commentValues, setCommentValues] = useState({ name: "", comment: "" });
+    const [commentValues, setCommentValues] = useState({ name: "", comments: [] });
 
     function handlechange(event) {
         // console.log(event.target);
@@ -11,11 +11,11 @@ function Addcomment(props) {
 
     }
 
-
+    // Changed api and comment to comments
     async function handlesave() {
         const name = commentValues.name;
-        const comments = commentValues.comment;
-        const response = await fetch(`http://localhost:5000/api/resume/comments`, {
+        const comments = commentValues.comments;
+        const response = await fetch('/api/user/comments', {
             method: 'post',
             body: JSON.stringify({ name, comments }),
             headers: {
@@ -33,7 +33,7 @@ function Addcomment(props) {
             <br />
 
             <label htmlFor="domain" className='labelname'>Your Comments</label>
-            <textarea rows="4" cols="50" id='lname' name="comment" placeholder='Comments...' value={commentValues.comment} onChange={handlechange}></textarea>
+            <textarea rows="4" cols="50" id='lname' name="comments" placeholder='Comments...' value={commentValues.comments} onChange={handlechange}></textarea>
             <br />
 
             <button type="submit" onClick={handlesave}> Submit</button>

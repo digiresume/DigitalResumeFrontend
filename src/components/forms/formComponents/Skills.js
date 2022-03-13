@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { Container, Form } from 'react-bootstrap';
 import { BiPlus, BiMinus } from "react-icons/bi";
 // import { Button } from 'react-scroll/modules';
+import { useParams } from 'react-router-dom';
 
 
 function Skills({ formData, setFormData }) {
+
+  const { templateNum } = useParams();
 
   // console.log(formData)
 
@@ -22,19 +25,24 @@ function Skills({ formData, setFormData }) {
     // console.log(newObj)
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const isadmin = false;
+    const skill = formData.skill;
+
+    const response = await fetch(`/api/user/resume/${templateNum}`, {
+      method: 'post',
+      body: JSON.stringify({ skill }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const body = await response.json();
+    alert(body.msg)
   }
 
-  // const data = (index) => (
 
-  //   formData.skill.map((i, key) => {
-  //     console.log(formData.skill)
-  //     console.log(index.i.formData.skill)
 
-  //     return (i.skill)
-  //   })
-  // )
 
   const handleAddFields = () => {
     setSkillField([...skillFields, { skill: '' }])
@@ -52,7 +60,7 @@ function Skills({ formData, setFormData }) {
       <Container>
         <BiPlus onClick={() => handleAddFields()} style={{ "color": "black" }} />
 
-        <form onSubmit={handleSubmit}>
+        <form method="post" onSubmit={handleSubmit}>
           {skillFields.map((inputField, index) => (
             <div key={index}>
               <div className="row">
@@ -67,6 +75,7 @@ function Skills({ formData, setFormData }) {
               </div>
             </div>
           ))}
+          <button style={{ "color": "blue", "backgroundColor": "grey" }} type='submit'>Save Your data</button>
         </form>
 
 

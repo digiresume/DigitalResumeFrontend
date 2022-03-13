@@ -96,8 +96,7 @@ function Form(props) {
                             if (page === FormTitles.length - 1) {
                                 alert("Resume successfully completed!");
                                 console.log(formData);
-                                navigate('/resume-download');
-                                // return < TemplateOne formData={formData} />
+                                navigate('/api/user/comments');
                             } else {
                                 setPage((currPage) => currPage + 1);
                             }

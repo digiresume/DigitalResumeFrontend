@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './PersonInfo.css';
+import { useParams } from 'react-router-dom';
+
 
 
 
 function PersonInfo({ formData, setFormData }) {
+
+    const { templateNum } = useParams();
+    console.log(templateNum)
 
     const changeHandler = (event) => {
         const data = {
@@ -12,10 +17,45 @@ function PersonInfo({ formData, setFormData }) {
         setFormData({ ...formData, ...data });
     }; console.log(formData);
 
+    useEffect(() => {
+
+        console.log("useeffect")
+        // fetchUser()
+
+    }, []);
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const isadmin = false;
+        const firstname = formData.firstname;
+        const lastname = formData.lastname;
+        const email = formData.email;
+        const phone = formData.phone;
+        const jobtitle = formData.jobtitle;
+        const objective = formData.objective;
+        const state = formData.state;
+        const dob = formData.dob;
+        const linkedin = formData.linkedin;
+        const github = formData.github;
+
+        console.log(firstname, lastname, email)
+
+
+        const response = await fetch(`/api/user/resume/${templateNum}`, {
+            method: 'post',
+            body: JSON.stringify({ firstname, lastname, email, phone, jobtitle, objective, state, dob, linkedin, github }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const body = await response.json();
+        console.log(body)
+        alert(body.msg)
+    }
 
     return (
         <div className="container">
-            <form>
+            <form method="post" onSubmit={handleSubmit}>
                 {/* Person Name */}
 
                 <div className='formInline'>
@@ -52,8 +92,8 @@ function PersonInfo({ formData, setFormData }) {
 
                 {/* Objective */}
                 <div>
-                    <label htmlFor="subject">Objective</label>
-                    <textarea name="subject" placeholder="Write your objective.." style={{ "height": '100px' }} value={formData.objective} onChange={(event) => { setFormData({ ...formData, objective: event.target.value }) }}></textarea>
+                    <label htmlFor="objective">Objective</label>
+                    <textarea name="objective" placeholder="Write your objective.." style={{ "height": '100px' }} value={formData.objective} onChange={(event) => { setFormData({ ...formData, objective: event.target.value }) }}></textarea>
                 </div>
 
 
@@ -87,7 +127,7 @@ function PersonInfo({ formData, setFormData }) {
                 </div>
 
 
-
+                <button style={{ "color": "blue", "backgroundColor": "grey" }} type='submit'>Save Your data</button>
             </form>
         </div>
     )
