@@ -25,23 +25,6 @@ function Skills({ formData, setFormData }) {
     // console.log(newObj)
   }
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    const isadmin = false;
-    const skill = formData.skill;
-
-    const response = await fetch(`/api/user/resume/${templateNum}`, {
-      method: 'post',
-      body: JSON.stringify({ skill }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    const body = await response.json();
-    alert(body.msg)
-    console.log(body)
-  }
-
 
 
 
@@ -61,7 +44,7 @@ function Skills({ formData, setFormData }) {
       <Container>
         <BiPlus onClick={() => handleAddFields()} style={{ "color": "black" }} />
 
-        <form method="post" onSubmit={handleSubmit}>
+        <form>
           {skillFields.map((inputField, index) => (
             <div key={index}>
               <div className="row">
@@ -76,7 +59,7 @@ function Skills({ formData, setFormData }) {
               </div>
             </div>
           ))}
-          <button style={{ "color": "blue", "backgroundColor": "grey" }} type='submit'>Save Your data</button>
+
         </form>
 
 

@@ -10,23 +10,6 @@ function Honors({ formData, setFormData }) {
   const [honourFields, setHonourField] = useState(formData.authorityOfCertification, formData.certificationTitle, formData.date)
   // const [honourFields, setHonourField] = useState(formData.honor[{honor:''}])
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    const isadmin = false;
-    const date = formData.date;
-    const certificationTitle = formData.certificationTitle;
-    const authorityOfCertification = formData.authorityOfCertification;
-
-    const response = await fetch(`/api/user/resume/${templateNum}`, {
-      method: 'post',
-      body: JSON.stringify({ date, certificationTitle, authorityOfCertification }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    const body = await response.json();
-    alert(body.msg)
-  }
 
 
 
@@ -57,7 +40,7 @@ function Honors({ formData, setFormData }) {
 
           <div className="col-xl-6">
             <div className="card-body p-md-5 text-black">
-              <form method="post" onSubmit={handleSubmit}>
+              <form>
                 {honourFields.map((inputField, index) => (
                   <div key={index}>
                     <div className="row">
@@ -82,7 +65,7 @@ function Honors({ formData, setFormData }) {
 
                   </div>
                 ))}
-                <button style={{ "color": "blue", "backgroundColor": "grey" }} type='submit'>Save Your data</button>
+
               </form>
 
             </div>

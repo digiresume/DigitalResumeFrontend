@@ -106,7 +106,7 @@ function AddUser(props) {
                         <p className='error'>{formErrors.password}</p>
                     </div>
 
-                    <button className="btn" type="submit" >Register</button>
+                    <button className="btn" type="submit" >Add User</button>
 
                 </form>
                 <br /><br /><br /><br /><br /><br /><br />

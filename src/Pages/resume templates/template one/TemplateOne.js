@@ -47,20 +47,27 @@ function TemplateOne(props) {
         const fdcompany = formData.fdcompany;
         const fdduration = formData.fdduration;
         const fddescription = formData.fddescription;
+        const skill = formData.skill;
+        const title = formData.title;
+        const description = formData.description;
+        const date = formData.date;
+        const certificationTitle = formData.certificationTitle;
+        const authorityOfCertification = formData.authorityOfCertification;
+
 
         console.log(firstname, lastname, email)
 
 
         const response = await fetch(`/api/user/resume/${templateNum}`, {
             method: 'post',
-            body: JSON.stringify({ firstname, lastname, email, phone, jobtitle, objective, state, dob, linkedin, github, degreeug, universityug, yearsug, achievementsug, schoolXII, boardXII, yearsXII, achievementsXII, schoolX, boardX, yearsX, achievementsX, fdjob, fdcompany, fdduration, fddescription }),
+            body: JSON.stringify({ firstname, lastname, email, phone, jobtitle, objective, state, dob, linkedin, github, degreeug, universityug, yearsug, achievementsug, schoolXII, boardXII, yearsXII, achievementsXII, schoolX, boardX, yearsX, achievementsX, fdjob, fdcompany, fdduration, fddescription, skill, title, description, date, certificationTitle, authorityOfCertification }),
             headers: {
                 'Content-Type': 'application/json'
             }
         })
         const body = await response.json();
         console.log(body)
-        alert(body.msg)
+        alert(body)
     }
 
 

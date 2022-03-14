@@ -45,9 +45,22 @@ function Admin(props) {
         navigate(`/api/admin/${name}`);
     }
 
-    // const UserAdd = () => {
-    //     navigate('/api/admin/adduser');
-    // }
+
+    async function DeleteUser(name) {
+        console.log(`${name}`)
+
+        const response = await fetch(`/api/admin/${name}/deleteuser`, {
+            method: 'post',
+            body: JSON.stringify({}),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const body = await response.json();
+        alert(body)
+        console.log(body);
+    }
+
 
 
     return (
@@ -66,7 +79,7 @@ function Admin(props) {
                             <div className="w3-container w3-red w3-padding-16">
                                 <div className="w3-left"><i className="fa fa-comment w3-xxxlarge"></i></div>
                                 <div className="w3-right">
-                                    <h3>52</h3>
+                                    <h3>-</h3>
                                 </div>
                                 <div className="w3-clear"></div>
                                 <h4>Testimonial</h4>
@@ -77,7 +90,7 @@ function Admin(props) {
                             <div className="w3-container w3-teal w3-padding-16">
                                 <div className="w3-left"><i className="fa fa-download w3-xxxlarge"></i></div>
                                 <div className="w3-right">
-                                    <h3>23</h3>
+                                    <h3>-</h3>
                                 </div>
                                 <div className="w3-clear"></div>
                                 <h4>Download</h4>
@@ -87,9 +100,8 @@ function Admin(props) {
                             <div className="w3-container w3-orange w3-text-white w3-padding-16">
                                 <div className="w3-left"><i className="fa fa-users w3-xxxlarge"></i></div>
                                 <div className="w3-right">{
-                                    <h3>{commentsData.length}</h3>
+                                    <h3>{userList.length}</h3>
                                 }
-
                                 </div>
                                 <div className="w3-clear"></div>
                                 <h4>Users</h4>
@@ -100,8 +112,8 @@ function Admin(props) {
                 <hr />
                 <div className='adminButton'>
                     <Link to="/api/admin/adduser" target="_blank" className='addUserLink'><button className='addUser'> Add user</button></Link><span />
-                    <button className='removeUser'>Remove user</button><span />
-                    <button>Users List</button>
+                    <a href="#deleteUser"><button className='removeUser'>Remove user</button></a><span />
+                    <a href="#userList"><button>Users List</button></a>
                 </div>
 
                 <hr />
@@ -125,14 +137,16 @@ function Admin(props) {
                 <hr />
 
                 <div className="w3-container">
-                    <h5>Users List</h5>
-                    <table className="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+                    <h5 id="deleteUser">Users List</h5>
+                    <table className="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="userList">
                         {
                             userList?.map((i, key) => (
                                 <tbody key={key}>
                                     <tr >
                                         <td>{i.firstname}</td>
+                                        <td>{i.email}</td>
                                         <td><Button onClick={(e) => ViewProfile(i.firstname)}>ViewProfile</Button></td>
+                                        <td><Button onClick={(e) => DeleteUser(i.firstname)}>Delete User</Button></td>
                                     </tr>
                                 </tbody>
                             )

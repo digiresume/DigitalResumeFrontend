@@ -12,6 +12,7 @@ margin-left: 20%;
     background-color: rgb(53, 94, 29);
     border-radius: 10px;
     border: none;
+    height: 50px;
 }
 
 .adminButton button:hover{
@@ -20,8 +21,8 @@ margin-left: 20%;
 
 .addUser{
     height: 50px;
-    
 }
+
 .adminButton a{
     border: none !important;
 }

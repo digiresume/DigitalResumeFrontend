@@ -34,26 +34,7 @@ function Project({ formData, setFormData }) {
 
     }
 
-    async function handleSubmit(event) {
-        event.preventDefault();
-        const isadmin = false;
-        const title = formData.title;
-        const description = formData.description;
-        const fdduration = formData.fdduration;
-        const fddescription = formData.fddescription;
 
-
-        const response = await fetch(`/api/user/resume/${templateNum}`, {
-            method: 'post',
-            body: JSON.stringify({ title, description, fdduration, fddescription }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        const body = await response.json();
-        console.log(body)
-        alert(body.msg)
-    }
 
     return (
 
@@ -62,7 +43,7 @@ function Project({ formData, setFormData }) {
 
 
             <AiOutlinePlus onClick={() => handleAddFields()} style={{ 'color': 'black' }}></AiOutlinePlus>
-            <form method="post" onSubmit={handleSubmit}>
+            <form>
                 {/* Project details */}
 
                 {
@@ -89,7 +70,6 @@ function Project({ formData, setFormData }) {
                         </div>))
 
                 }
-                <button style={{ "color": "blue", "backgroundColor": "grey" }} type='submit'>Save Your data</button>
             </form>
 
         </div>

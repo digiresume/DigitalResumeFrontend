@@ -2,15 +2,68 @@ import React, { useRef } from 'react';
 import './TemplateTwo.css';
 import { useReactToPrint } from "react-to-print";
 import { RWebShare } from "react-web-share";
+import { useParams } from 'react-router-dom';
 
 function TemplateTwo(props) {
 
+    const { templateNum } = useParams;
     const { formData } = props;
 
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
     });
+
+
+    async function handleSave(event) {
+        const firstname = formData.firstname;
+        const lastname = formData.lastname;
+        const email = formData.email;
+        const phone = formData.phone;
+        const jobtitle = formData.jobtitle;
+        const objective = formData.objective;
+        const state = formData.state;
+        const dob = formData.dob;
+        const linkedin = formData.linkedin;
+        const github = formData.github;
+        const degreeug = formData.degreeug;
+        const universityug = formData.universityug;
+        const yearsug = formData.yearsug;
+        const achievementsug = formData.achievementsug;
+        const schoolXII = formData.schoolXII;
+        const boardXII = formData.boardXII;
+        const yearsXII = formData.yearsXII;
+        const achievementsXII = formData.achievementsXII;
+        const schoolX = formData.schoolX;
+        const boardX = formData.boardX;
+        const yearsX = formData.yearsX;
+        const achievementsX = formData.achievementsX;
+        const fdjob = formData.fdjob;
+        const fdcompany = formData.fdcompany;
+        const fdduration = formData.fdduration;
+        const fddescription = formData.fddescription;
+        const skill = formData.skill;
+        const title = formData.title;
+        const description = formData.description;
+        const date = formData.date;
+        const certificationTitle = formData.certificationTitle;
+        const authorityOfCertification = formData.authorityOfCertification;
+
+
+        console.log(firstname, lastname, email)
+
+
+        const response = await fetch(`/api/user/resume/${templateNum}`, {
+            method: 'post',
+            body: JSON.stringify({ firstname, lastname, email, phone, jobtitle, objective, state, dob, linkedin, github, degreeug, universityug, yearsug, achievementsug, schoolXII, boardXII, yearsXII, achievementsXII, schoolX, boardX, yearsX, achievementsX, fdjob, fdcompany, fdduration, fddescription, skill, title, description, date, certificationTitle, authorityOfCertification }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const body = await response.json();
+        console.log(body)
+        alert(body)
+    }
 
     return (
         <div>
@@ -197,6 +250,8 @@ function TemplateTwo(props) {
                 >
                     <button>Share on Web</button>
                 </RWebShare>
+
+                <button onClick={(e) => handleSave()}>Save Data</button>
             </div>
         </div>
     );

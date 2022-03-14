@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import React from 'react';
+// import { useParams } from 'react-router';
 import "./ViewProfile.css";
 
 function ViewProfile(props) {
@@ -9,6 +9,8 @@ function ViewProfile(props) {
 
 
     console.log(userData);
+
+    console.log(userData.skill);
 
     return (
         <div className="viewprofile">
@@ -23,7 +25,7 @@ function ViewProfile(props) {
                         />
                         <div className="vp-name">
                             {/* Code Man */}
-                            {userData.firstname}
+                            {userData.firstname}{userData.lastname}
                         </div>
                         <div className="vp-phone">
                             <img
@@ -41,6 +43,23 @@ function ViewProfile(props) {
                             />
                             <div className="vp-email-text">{userData.email}</div>
                         </div>
+                        <div className="vp-email">
+                            <a href={userData.linkedin}><img
+                                className="vp-objective-img"
+                                src="https://image.similarpng.com/very-thumbnail/2021/01/Illustration-of-Linkedin-icon-on-transparent-background-PNG.png"
+                                alt="icon"
+                            /></a>
+                            <div className="vp-email-text"></div>
+                        </div>
+
+                        <div className="vp-email">
+                            <a href={userData.github}> <img
+                                className="vp-objective-img"
+                                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                                alt="icon"
+                            /></a>
+                            <div className="vp-email-text"></div>
+                        </div>
                     </div>
                 </div>
                 <div className='vpResumeBody'>
@@ -48,14 +67,13 @@ function ViewProfile(props) {
 
                         <h1>Work Experience</h1>
                         <div className="vp-job-title">
-                            Job @{userData.fdjob}
+                            {userData.fdjob} @{userData.fdcompany}
                         </div>
                         <div className="vp-job-date">
-                            Jan 2015 - Present {/*formData.fdjob*/}
+                            {userData.fdduration}
                         </div>
                         <div className="vp-job-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae
-                            laoreet diam. {/*formData.fdjob*/}
+                            {userData.fddescription}
                         </div>
                     </div>
                     <div className="vp-education">
@@ -66,39 +84,32 @@ function ViewProfile(props) {
                                 {userData.degreeug} @{userData.universityug}
                             </div>
                             <div className="vp-education-date">
-                                Jan 2015 - Present {/*formData.yearsug*/}
+                                {userData.yearsug}
                             </div>
                             <div className="vp-education-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                                vitae laoreet diam.
-                                {/*formData.achievementsug*/}
+                                {userData.achievementsug}
                             </div>
                         </div>
                         <div className="vp-education-box">
                             <div className="vp-education-title">
-                                Job @Employername {/*formData.schoolXII*/} @{" "}
-                                {/*formData.boardXII*/}
+                                {userData.schoolXII} @{userData.boardXII}
                             </div>
                             <div className="vp-education-date">
-                                Jan 2015 - Present {/*formData.yearsXII*/}
+                                {userData.yearsXII}
                             </div>
                             <div className="vp-education-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                                vitae laoreet diam.
-                                {/*formData.achievementsXII*/}
+                                {userData.achievementsXII}
                             </div>
                         </div>
                         <div className="vp-education-box">
                             <div className="vp-education-title">
-                                Job @Employername {/*formData.schoolX*/} @ {/*formData.boardX*/}
+                                {userData.schoolX} @{userData.boardX}
                             </div>
                             <div className="vp-education-date">
-                                Jan 2015 - Present {/*formData.yearsX*/}
+                                {userData.yearsX}
                             </div>
                             <div className="vp-education-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                                vitae laoreet diam.
-                                {/*formData.achievementsX*/}
+                                {userData.achievementsX}
                             </div>
                         </div>
                     </div>
@@ -108,9 +119,45 @@ function ViewProfile(props) {
                         <div>
                             {
                                 userData?.skill?.map((i, key) => (
-                                    <React.Fragment key={key}>
-                                        <ul className="vp-skill-ul">
-                                            <li className="vp-skill-li" key={key}>{i}</li>
+                                    <React.Fragment>
+                                        <ul className="vp-skill-ul" >
+                                            <li className="vp-skill-li" key={key}>{i.skill}</li>
+                                        </ul>
+                                    </React.Fragment>
+
+                                ))
+                            }
+                        </div>
+                    </div>
+
+
+                    <div className="vp-skills">
+
+                        <h1>Projects</h1>
+                        <div>
+                            {
+                                userData?.title?.map((i, key) => (
+                                    <React.Fragment>
+                                        <ul className="vp-skill-ul" >
+                                            <li className="vp-project-li" key={key}><h5>{i.title}</h5>{i.description}</li>
+                                        </ul>
+                                    </React.Fragment>
+
+                                ))
+                            }
+                        </div>
+                    </div>
+
+
+                    <div className="vp-skills">
+
+                        <h1>Honours & Certifications</h1>
+                        <div>
+                            {
+                                userData?.certificationTitle?.map((i, key) => (
+                                    <React.Fragment>
+                                        <ul className="vp-skill-ul" >
+                                            <li className="vp-project-li" key={key}><h5>{i.certificationTitle}</h5>{i.authorityOfCertification}<br />{i.date}</li>
                                         </ul>
                                     </React.Fragment>
 

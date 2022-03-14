@@ -11,34 +11,12 @@ function Work({ formData, setFormData }) {
   const { templateNum } = useParams();
 
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    const isadmin = false;
-    const fdjob = formData.fdjob;
-    const fdcompany = formData.fdcompany;
-    const fdduration = formData.fdduration;
-    const fddescription = formData.fddescription;
 
-
-    // console.log(firstname, lastname, email)
-
-
-    const response = await fetch(`/api/user/resume/${templateNum}`, {
-      method: 'post',
-      body: JSON.stringify({ fdjob, fdcompany, fdduration, fddescription }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    const body = await response.json();
-    console.log(body)
-    alert(body.msg)
-  }
 
 
   return (
     <div className="container">
-      <form method="post" onSubmit={handleSubmit}>
+      <form>
         <div className="formInline">
           <label htmlFor="fname" className="labelFname">
             Job Title
@@ -81,7 +59,6 @@ function Work({ formData, setFormData }) {
           value={formData.fddescription}
           onChange={(event) => { setFormData({ ...formData, fddescription: event.target.value }) }}
         />
-        <button style={{ "color": "blue", "backgroundColor": "grey" }} type='submit'>Save Your data</button>
       </form>
     </div>
   );
