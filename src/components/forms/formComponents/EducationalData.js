@@ -1,6 +1,5 @@
 import React from 'react';
 import "./EducationalData.css"
-import { useParams } from 'react-router-dom';
 
 
 
@@ -10,43 +9,12 @@ import { useParams } from 'react-router-dom';
 
 
 function EducationalData({ formData, setFormData }) {
-  const { templateNum } = useParams();
-
-  async function handleSubmit(event) {
-    event.preventDefault();
-    const isadmin = false;
-    const degreeug = formData.degreeug;
-    const universityug = formData.universityug;
-    const yearsug = formData.yearsug;
-    const achievementsug = formData.achievementsug;
-    const schoolXII = formData.schoolXII;
-    const boardXII = formData.boardXII;
-    const yearsXII = formData.yearsXII;
-    const achievementsXII = formData.achievementsXII;
-    const schoolX = formData.schoolX;
-    const boardX = formData.boardX;
-    const yearsX = formData.yearsX;
-    const achievementsX = formData.achievementsX;
-    // console.log(firstname, lastname, email)
-
-
-    const response = await fetch(`/api/user/resume/${templateNum}`, {
-      method: 'post',
-      body: JSON.stringify({ degreeug, universityug, yearsug, achievementsug, schoolXII, boardXII, yearsXII, achievementsXII, schoolX, boardX, yearsX, achievementsX }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    const body = await response.json();
-    console.log(body)
-    alert(body.msg)
-  }
 
 
   return (
 
     <div className="container">
-      <form method="post" onSubmit={handleSubmit}>
+      <form>
 
         {/* UG*/}
         <div>
@@ -106,7 +74,6 @@ function EducationalData({ formData, setFormData }) {
             onChange={(event) => { setFormData({ ...formData, achievementsX: event.target.value }) }} />
 
         </div>
-        <button style={{ "color": "blue", "backgroundColor": "grey" }} type='submit'>Save Your data</button>
 
       </form>
     </div>

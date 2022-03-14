@@ -100,7 +100,8 @@
 }
 #ft p { 
     margin-bottom: 0; 
-    text-align: center;   
+    text-align: center;  
+    color: #444; 
 }
 
 /* core typography and style */

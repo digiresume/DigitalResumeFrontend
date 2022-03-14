@@ -4,25 +4,11 @@ import "./ViewProfile.css";
 
 function ViewProfile(props) {
 
-    const { name } = useParams();
+    const { userData } = props;
 
 
-    const [userData, setUserData] = useState({})
-    // const [skill,setUserSkill] = useState(userData.skill)
 
-    useEffect(() => {
-        fetchUserData();
-    }, [name]);
-
-    async function fetchUserData() {
-        console.log("fetch")
-        const response = await fetch(`/api/admin/${name}`);
-        console.log(`/api/admin/${name}`)
-        const body = await response.json();
-        console.log(body)
-        setUserData(body);
-    }
-
+    console.log(userData);
 
     return (
         <div className="viewprofile">
@@ -62,7 +48,7 @@ function ViewProfile(props) {
 
                         <h1>Work Experience</h1>
                         <div className="vp-job-title">
-                            Job @Employername {/*formData.fdjob*/} @ {/*formData.fdcompany*/}
+                            Job @{userData.fdjob}
                         </div>
                         <div className="vp-job-date">
                             Jan 2015 - Present {/*formData.fdjob*/}
@@ -77,8 +63,7 @@ function ViewProfile(props) {
                         <h1>Education</h1>
                         <div className="vp-education-box">
                             <div className="vp-education-title">
-                                Job @Employername {/*formData.degreeug*/} @{" "}
-                                {/*formData.universityug*/}
+                                {userData.degreeug} @{userData.universityug}
                             </div>
                             <div className="vp-education-date">
                                 Jan 2015 - Present {/*formData.yearsug*/}
@@ -121,10 +106,6 @@ function ViewProfile(props) {
 
                         <h1>Skills</h1>
                         <div>
-                            <ul className="vp-skill-ul">
-                                <li className="vp-skill-li" ><span>{userData.skill}</span></li>
-                            </ul>
-
                             {
                                 userData?.skill?.map((i, key) => (
                                     <React.Fragment key={key}>

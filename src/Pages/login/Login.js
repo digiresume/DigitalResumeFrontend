@@ -52,12 +52,19 @@ function LogIn(props) {
         const body = await response.json()
         console.log(body)
 
-        if (body.success) {
+        if (body.success && body.IsAdmin === false) {
             //     localStorage.setItem('token', body.accessToken)
-            alert("Login success")
+            alert("User Login success")
             dispatch({ type: "LOGIN_SUCCESS", payload: body });
             console.log("success")
             navigate('/user-home');
+        }
+        else if (body.success && body.IsAdmin) {
+            //     localStorage.setItem('token', body.accessToken)
+            alert("Admin Login success")
+            dispatch({ type: "LOGIN_SUCCESS", payload: body });
+            console.log("success")
+            navigate('/api/admin');
         }
         else {
             alert("Username or password incorrect")

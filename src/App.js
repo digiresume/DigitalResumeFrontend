@@ -19,10 +19,18 @@ import Pdf from "./Pages/react to pdf/Pdf";
 import { useState } from 'react';
 import Error from "./components/error/Error";
 import ViewProfile from "./Pages/admin/ViewProfile";
+import AddUser from "./Pages/admin/add user/AddUser";
 
 function App() {
 
   const [templateNum, setTemplateNum] = useState(0);
+  const [userData, setUserData] = useState({
+    firstname: "", lastname: "", photo: '', photoname: '', email: "", phone: "", jobtitle: "", objective: "",
+    location: "", dob: "", linkedin: "", github: "",
+    degreeug: "", universityug: "", yearsug: "", achievementsug: "", schoolXII: "", boardXII: "",
+    yearsXII: "", achievementsXII: "", schoolX: "", boardX: "", yearsX: "", achievementsX: "",
+    fdjob: "", fdcompany: "", fdduration: "", fddescription: "", skill: [{ skill: '' }], date: [{ date: '' }], certificationTitle: [{ certificationTitle: '' }], authorityOfCertification: [{ authorityOfCertification: '' }], title: [{ title: '' }], description: [{ description: '' }]
+  });
 
 
   return (
@@ -38,14 +46,15 @@ function App() {
           <Route exact path="/api/auth/resetpassword/:resetToken" element={<ResetPassword />} />
           <Route exact path="/api/user/resume/:templateNum" element={<Form templateNum={templateNum} />} />
           {/* <Route exact path="/admin" element={<Admin />} /> */}
-          <Route exact path="/api/admin" element={<Admin />} />
+          <Route exact path="/api/admin" element={<Admin userData={userData} setUserData={setUserData} />} />
           <Route exact path="/user-home" element={<UserHome />} />
           <Route exact path="/template-one" element={<TemplateOne />} />
           <Route exact path="/template-two" element={<TemplateTwo />} />
           <Route exact path="/template-three" element={<TemplateThree />} />
           <Route exact path="/choose-template" element={<ChooseTemplate templateNum={templateNum} setTemplateNum={setTemplateNum} />} />
           <Route exact path="/api/user/comments" element={<Pdf />} />
-          <Route exact path="/api/admin/:name" element={<ViewProfile />} />
+          <Route exact path="/api/admin/:name" element={<ViewProfile userData={userData} />} />
+          <Route exact path='/api/admin/adduser' element={<AddUser />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

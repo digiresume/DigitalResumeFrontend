@@ -55,10 +55,21 @@ function Header(props) {
                             </Link>
                         </li>
 
-                        <li className="nav-text">
-                            <Link to="/" onClick={handleLogout}>
-                                <span>{user && "Logout"}</span></Link>
-                        </li>
+
+                        {user?.IsAdmin &&
+                            <li className="nav-text" >
+
+                                <Link to="/api/admin">
+                                    {/* <AiIcons.AiOutlineDesktop /> */}
+                                    <span>Admin Dashboard</span></Link>
+                            </li>
+                        }
+                        {user &&
+                            <li className="nav-text">
+                                <Link to="/" onClick={handleLogout}>
+                                    <span>Logout</span></Link>
+                            </li>
+                        }
                         <li className="nav-text">
                             <Link to="/">
                                 {/* <AiIcons.AiFillHome /> */}
@@ -69,17 +80,20 @@ function Header(props) {
                                 {/* <AiIcons.AiFillBulb /> */}
                                 <span>About</span></Link>
                         </li>
-
-                        <li className="nav-text">
-                            <Link to="/api/auth/login">
-                                {/* <AiIcons.AiOutlineLogin /> */}
-                                <span>{!user && "Login"}</span></Link>
-                        </li>
-                        <li className="nav-text">
-                            <Link to="/api/auth/register">
-                                {/* <AiIcons.AiOutlineDesktop /> */}
-                                <span>{!user && "Signup"}</span></Link>
-                        </li>
+                        {!user &&
+                            <li className="nav-text">
+                                <Link to="/api/auth/login">
+                                    {/* <AiIcons.AiOutlineLogin /> */}
+                                    <span>Login</span></Link>
+                            </li>
+                        }
+                        {!user &&
+                            <li className="nav-text">
+                                <Link to="/api/auth/register">
+                                    {/* <AiIcons.AiOutlineDesktop /> */}
+                                    <span> Signup</span></Link>
+                            </li>
+                        }
 
 
                     </ul>

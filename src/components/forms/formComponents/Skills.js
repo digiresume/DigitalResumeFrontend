@@ -39,6 +39,7 @@ function Skills({ formData, setFormData }) {
     })
     const body = await response.json();
     alert(body.msg)
+    console.log(body)
   }
 
 

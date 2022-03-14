@@ -2,12 +2,12 @@ import React, { useRef } from 'react';
 import './TemplateOne.css';
 import { useReactToPrint } from "react-to-print";
 import { RWebShare } from "react-web-share";
-
+import { useParams } from 'react-router-dom';
 
 
 function TemplateOne(props) {
 
-
+    const { templateNum } = useParams;
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
@@ -18,6 +18,51 @@ function TemplateOne(props) {
 
     // console.log(formData.firstname);
     // console.log(formData.photo);
+
+
+    async function handleSave(event) {
+        const firstname = formData.firstname;
+        const lastname = formData.lastname;
+        const email = formData.email;
+        const phone = formData.phone;
+        const jobtitle = formData.jobtitle;
+        const objective = formData.objective;
+        const state = formData.state;
+        const dob = formData.dob;
+        const linkedin = formData.linkedin;
+        const github = formData.github;
+        const degreeug = formData.degreeug;
+        const universityug = formData.universityug;
+        const yearsug = formData.yearsug;
+        const achievementsug = formData.achievementsug;
+        const schoolXII = formData.schoolXII;
+        const boardXII = formData.boardXII;
+        const yearsXII = formData.yearsXII;
+        const achievementsXII = formData.achievementsXII;
+        const schoolX = formData.schoolX;
+        const boardX = formData.boardX;
+        const yearsX = formData.yearsX;
+        const achievementsX = formData.achievementsX;
+        const fdjob = formData.fdjob;
+        const fdcompany = formData.fdcompany;
+        const fdduration = formData.fdduration;
+        const fddescription = formData.fddescription;
+
+        console.log(firstname, lastname, email)
+
+
+        const response = await fetch(`/api/user/resume/${templateNum}`, {
+            method: 'post',
+            body: JSON.stringify({ firstname, lastname, email, phone, jobtitle, objective, state, dob, linkedin, github, degreeug, universityug, yearsug, achievementsug, schoolXII, boardXII, yearsXII, achievementsXII, schoolX, boardX, yearsX, achievementsX, fdjob, fdcompany, fdduration, fddescription }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const body = await response.json();
+        console.log(body)
+        alert(body.msg)
+    }
+
 
     return (
 
@@ -207,13 +252,17 @@ function TemplateOne(props) {
                     <RWebShare
                         data={{
                             text: "Sleekcv's Resume",
-                            url: "http://localhost:3000",
+                            url: window.location.href,
                             title: "Resume Link",
                         }}
                         onClick={() => console.log("shared successfully!")}
                     >
                         <button>Share on Web</button>
                     </RWebShare>
+
+                    <button onClick={(e) => handleSave()}>Save Data</button>
+
+
                 </div>
 
             </div>
